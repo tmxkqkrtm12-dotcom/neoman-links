@@ -119,6 +119,16 @@ const SECTIONS = [
     { n:9, ep:"34화", scene:"단추 하나 떨어진 날 꺼내는 반짇고리",
       title:"말순 여사 반짇고리", why:"바늘, 실, 가위가 한 통에", name:"베르슈아 휴대용 반짇고리 세트", link:"https://link.coupang.com/a/iFNbGiCbxk", img:"n9.jpg" }
   ]},
+  { title: "많이들 쓰는 생활용품", badge: "가성비", items: [
+    { n:11, ep:"", scene:"", title:"물기 쏙 규조토 발매트", why:"욕실 앞 젖은 발, 금방 말라요", name:"플랜젯 물기쏙 빨아쓰는 소프트 규조토 발매트", link:"https://link.coupang.com/a/iG3XawPDc4", img:"n11.jpg" },
+    { n:12, ep:"", scene:"", title:"밀대에 끼우는 물걸레 청소포", why:"30매씩 4묶음, 쓰고 버려요", name:"케이크린업 물걸레 청소포 30매 4개", link:"https://link.coupang.com/a/iG3XEz92gm", img:"n12.jpg" },
+    { n:13, ep:"", scene:"", title:"세워 쓰는 실리콘 지퍼백", why:"반찬, 국 소분해서 냉동까지", name:"데일리랑 실리콘지퍼팩 3중 스탠드", link:"https://link.coupang.com/a/iG3Ys5Vn9U", img:"n13.jpg" },
+    { n:14, ep:"", scene:"", title:"충전해서 쓰는 손난로", why:"손도 데우고 휴대폰 충전도 돼요", name:"스마티 5000mAh 손난로 보조배터리", link:"https://link.coupang.com/a/iG3YW4soOO", img:"n14.jpg" },
+    { n:15, ep:"", scene:"", title:"포근한 수면양말", why:"겨울밤 발 시릴 때", name:"멜로디삭스 국산 수면양말", link:"https://link.coupang.com/a/iG3ZLnIpbM", img:"n15.jpg" },
+    { n:16, ep:"", scene:"", title:"미끄럼 방지 실내화", why:"바닥에 착 붙어 덜 미끄러워요", name:"메디에버 미끄럼방지 실내화", link:"https://link.coupang.com/a/iG30fVWyMC", img:"n16.jpg" },
+    { n:17, ep:"", scene:"", title:"무릎에 덮는 극세사 담요", why:"소파, 사무실 의자 어디든", name:"더자리 마이블랭킷 극세사 담요", link:"https://link.coupang.com/a/iG32q4lAwC", img:"n17.jpg" },
+    { n:18, ep:"", scene:"", title:"뚜껑 있는 수납 정리함", why:"4개 묶음, 팬트리, 옷장 정리", name:"코멧 홈 리빙박스 팬트리 정리함 L 4개", link:"https://link.coupang.com/a/iG32VoqkfI", img:"n18.jpg" }
+  ]},
   { title: "몰아보기 2편 물건", badge: "26화~31화", items: [
     { n:6, ep:"28화", scene:"손자가 서랍에서 몰래 꺼낸 일주일 약통",
       title:"말순 여사 요일별 약통", why:"요일 글씨가 커서 한눈에 보여요", name:"내쎌 대형 한눈에 일주일 약통", link:"https://link.coupang.com/a/iFNaKMpmyy", img:"n6.jpg" },
@@ -158,8 +168,8 @@ for (const sec of SECTIONS) {
     const btn = live
       ? `<a class="buy" href="${esc(it.link)}" target="_blank" rel="noopener">쿠팡에서 보기 ›</a>`
       : `<span class="buy empty">[쿠팡 링크 자리]</span>`;
-    h += `<article class="item" id="n${it.n}"><div class="top">${nums.map(a => `<span class="num">${a}번</span>`).join("")}<span class="ep">${esc(it.ep)}</span><span class="found">찾으시던 물건이에요</span></div>`
-       + `<p class="scene">${esc(it.scene)}</p>${goods}${btn}</article>`;
+    h += `<article class="item" id="n${it.n}"><div class="top">${nums.map(a => `<span class="num">${a}번</span>`).join("")}${it.ep ? `<span class="ep">${esc(it.ep)}</span>` : ""}<span class="found">찾으시던 물건이에요</span></div>`
+       + `${it.scene ? `<p class="scene">${esc(it.scene)}</p>` : ""}${goods}${btn}</article>`;
   }
   h += `</div></section>`;
 }

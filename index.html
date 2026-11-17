@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>너만몰라 링크 모음</title>
+<meta name="description" content="다들 챙기는데 나만 몰랐던 돈, 혜택, 선물 링크를 한 곳에 모았어요.">
+<meta property="og:title" content="너만몰라 링크 모음">
+<meta property="og:description" content="수능 선물, 연말 선물, 고향사랑기부, 블로그 새 글">
+<meta property="og:image" content="img/profile.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --bg:#F3EFE8; --card:#FFFFFF; --ink:#22201C; --sub:#6B655C; --line:#E4DDD1;
+  --accent:#F26B1D; --accent-ink:#FFFFFF; --tag:#FFF1E6; --tag-ink:#B4500F; --hot:#1E7A4C;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:480px;margin:0 auto;padding:28px 16px 48px}
+header{text-align:center}
+.avatar{width:88px;height:88px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+h1{font-size:22px;margin:12px 0 4px;letter-spacing:-.3px}
+.bio{color:var(--sub);font-size:15px;margin:0}
+.notice{margin:18px 0 0;padding:10px 12px;background:#FBF8F3;border:1px solid var(--line);border-radius:10px;
+  color:var(--sub);font-size:12px;line-height:1.55;text-align:left}
+section{margin-top:30px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:12px}
+h2{font-size:18px;margin:0;letter-spacing:-.3px}
+.badge{flex:none;font-size:12px;font-weight:700;color:#fff;background:var(--hot);padding:4px 8px;border-radius:999px}
+.badge.gray{background:#8C857A}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+a.item{display:flex;flex-direction:column;background:var(--card);border-radius:14px;overflow:hidden;
+  text-decoration:none;color:inherit;border:1px solid var(--line);transition:transform .12s}
+a.item:active{transform:scale(.98)}
+a.item img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eee}
+.item .body{padding:10px 10px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.num{position:absolute;top:8px;left:8px;background:rgba(34,32,28,.82);color:#fff;font-size:13px;font-weight:800;padding:4px 8px;border-radius:8px}
+.pic{position:relative}
+.find{display:flex;gap:8px;margin-top:14px}
+.find input{flex:1;min-width:0;font:inherit;font-size:16px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.find button{font:inherit;font-weight:700;font-size:15px;border:0;border-radius:10px;padding:0 16px;background:var(--ink);color:#fff}
+.flash{outline:3px solid var(--accent);outline-offset:2px}
+.who{align-self:flex-start;font-size:12px;font-weight:700;color:var(--tag-ink);background:var(--tag);padding:3px 7px;border-radius:6px}
+.name{font-size:14px;font-weight:600;line-height:1.35}
+.go{margin-top:auto;font-size:13px;font-weight:700;color:var(--accent)}
+a.wide{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:14px;text-decoration:none;color:inherit;margin-bottom:10px}
+a.wide .t{font-size:15px;font-weight:600;line-height:1.35}
+a.wide .s{font-size:13px;color:var(--sub);margin-top:3px}
+a.wide .arrow{margin-left:auto;color:var(--accent);font-size:20px;font-weight:700}
+a.cta{display:block;text-align:center;background:var(--accent);color:var(--accent-ink);text-decoration:none;
+  font-weight:700;font-size:15px;padding:14px;border-radius:12px;margin-top:12px}
+footer{margin-top:36px;text-align:center;color:var(--sub);font-size:12px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="avatar" src="img/profile.jpg" alt="너만몰라 캐릭터 느루">
+    <h1>너만몰라</h1>
+    <p class="bio">다들 챙기는데 나만 몰랐던 돈, 혜택, 선물</p>
+    <p class="notice" id="notice"></p>
+    <form class="find" id="find"><input id="q" inputmode="numeric" placeholder="게시물에서 본 링크 번호" aria-label="링크 번호"><button>찾기</button></form>
+  </header>
+  <main id="app"></main>
+  <footer>새 링크는 맨 위에 올라와요. 저장해 두고 필요할 때 꺼내 보세요.</footer>
+</div>
+<script>
+// 본부가 고치는 곳: 새 회차는 SECTIONS 맨 앞에 넣는다. 지난 회차는 지우지 않고 아래로 둔다.
+// 번호(n)는 만든 순서대로 계속 늘리고 한 번 준 번호는 바꾸지 않는다(게시물에 "링크 N번"으로 적음, 벤치마킹 11/13).
+const NOTICE = [
+  "이 포스팅은 선물하기 큐레이터 활동의 일환으로, 주문 발생 시 일정액의 수수료를 제공 받습니다.",
+  "고향사랑기부 링크로 기부하면 작성자에게 웰로 파트너스 수익이 지급될 수 있습니다."
+];
+const K = id => "https://gift-link.kakao.com/c/" + id;
+const SECTIONS = [
+  { title: "연말 선물, 상품권 말고 상자째 가는 6개", badge: "12/16까지 주소 받기", items: [
+    { n:12, id:"CG1W94pa", who:"엄마 아빠", name:"부사사과 3.5kg, 현관 앞에 빨간 사과 한 상자" },
+    { n:13, id:"Dz5UhMg6", who:"뭘 좋아하실지 모르는 어른", name:"오설록 프리미엄 티 컬렉션 10가지 맛" },
+    { n:14, id:"1n87stxP", who:"애인", name:"루오딘 CD플레이어 & 블루투스 스피커" },
+    { n:15, id:"mkCrcXM8", who:"친구", name:"두마로 애니 숄더백, 맨날 입는 그 색으로" },
+    { n:16, id:"0MLHPjjq", who:"마니또, 동료", name:"키세스 스마트워치 보조배터리" },
+    { n:17, id:"426OqV9B", who:"연말 집들이", name:"부이 바디 에어 드라이어" }
+  ], blog: { url:"https://blog.naver.com/lee1994_/224479825916", text:"받는 사람별로 고르는 법 블로그에서 보기" } },
+  { title: "수능 선물, 받는 사람별 6개", badge: "11/19 목 수능", items: [
+    { n:6, id:"J8XdgJ1m", who:"지인 자녀", name:"벨기에 수제초콜릿 칼루위 25조각" },
+    { n:7, id:"8JwVMDAF", who:"조카", name:"초콜릿인 줄 알았던 24k 순금 골드바 1+1" },
+    { n:8, id:"2q290zIs", who:"반 애들 여럿", name:"흔드는 붕어빵 핫팩 20개" },
+    { n:9, id:"bZkYNWSZ", who:"쑥스러운 사이", name:"\"합격\" 글자 찍힌 생초콜릿, 엽서까지" },
+    { n:10, id:"SmrBQIS6", who:"수험생 있는 집", name:"쿠캣 찹쌀떡 세트, 딸기쏙 티라미수쏙" },
+    { n:11, id:"i6ilqsia", who:"같이 공부한 친구", name:"속이 초코인 잔망루피 찹쌀떡" }
+  ], blog: { url:"https://blog.naver.com/lee1994_/224476222916", text:"보내기 전 체크 4개까지 블로그에서 보기" } },
+  { title: "연말 동료 선물, 1~3만 원대", badge: "연말", gray:true, items: [
+    { n:1, id:"niQ9wzIp", who:"누구에게나", name:"카카올라 생초콜릿 4종 중 택1" },
+    { n:2, id:"xkj89BkB", who:"감성 좋아하는 동료", name:"휴그 레트로 디지털 카메라" },
+    { n:3, id:"xCN648aB", who:"팀 전체", name:"제주 서귀포 유라 감귤" },
+    { n:4, id:"Gpbe7mpn", who:"매일 피곤한 동료", name:"오쏘몰 비타민C 50일분" },
+    { n:5, id:"2z8FIpin", who:"가볍게 챙길 때", name:"오브제 무드 체인지 립밤" }
+  ], blog: { url:"https://blog.naver.com/lee1994_/224473496990", text:"동료 선물 고르는 법 블로그에서 보기" } }
+];
+const EXTRA = [
+  { url:"https://www.welfarehello.com/r/EOj7Vm", t:"어차피 낼 세금 10만 원으로 답례품 받기", s:"고향사랑기부, 연말정산 전에" },
+  { url:"https://www.welfarehello.com/r/d9cuSG", t:"10만 원 기부하고 횡성한우 곰탕 8팩 받기", s:"고향사랑기부 답례품" }
+];
+const BLOG = [
+  { url:"https://blog.naver.com/lee1994_/224479825916", t:"연말 선물 추천, 상품권 봉투만 주기 미안할 때 고르는 6가지" },
+  { url:"https://blog.naver.com/lee1994_/224476222916", t:"수능 선물 추천, 뻔한 거 말고 받는 사람별 6가지" },
+  { url:"https://blog.naver.com/lee1994_/224476199014", t:"청년 지원금 신청, 올해 안에 닫히는 4가지" },
+  { url:"https://blog.naver.com/lee1994_/224476198342", t:"콘서트 취소 수수료, 놓치면 손해인 날짜 4개" },
+  { url:"https://blog.naver.com/lee1994_/224474262151", t:"개인투자용 국채 몇 년물? 볼 것 5가지" }
+];
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+document.getElementById("notice").textContent = NOTICE.join(" ");
+let h = "";
+for (const sec of SECTIONS) {
+  h += `<section><div class="sec-head"><h2>${esc(sec.title)}</h2><span class="badge${sec.gray?" gray":""}">${esc(sec.badge)}</span></div><div class="grid">`;
+  for (const it of sec.items) {
+    h += `<a class="item" id="n${it.n}" href="${K(it.id)}" target="_blank" rel="noopener"><div class="pic"><img src="img/${it.id}.jpg" alt="${esc(it.name)}" loading="lazy"><span class="num">${it.n}번</span></div><div class="body"><span class="who">${esc(it.who)}</span><span class="name">${esc(it.name)}</span><span class="go">선물하기 →</span></div></a>`;
+  }
+  h += `</div>`;
+  if (sec.blog) h += `<a class="cta" href="${sec.blog.url}" target="_blank" rel="noopener">${esc(sec.blog.text)}</a>`;
+  h += `</section>`;
+}
+h += `<section><div class="sec-head"><h2>연말 전에 챙길 혜택</h2></div>`;
+for (const e of EXTRA) h += `<a class="wide" href="${e.url}" target="_blank" rel="noopener"><div><div class="t">${esc(e.t)}</div><div class="s">${esc(e.s)}</div></div><span class="arrow">›</span></a>`;
+h += `</section><section><div class="sec-head"><h2>블로그 새 글</h2></div>`;
+for (const b of BLOG) h += `<a class="wide" href="${b.url}" target="_blank" rel="noopener"><div class="t">${esc(b.t)}</div><span class="arrow">›</span></a>`;
+h += `<a class="cta" href="https://blog.naver.com/lee1994_" target="_blank" rel="noopener">너만몰라 블로그 전체 보기</a></section>`;
+document.getElementById("app").innerHTML = h;
+document.getElementById("find").addEventListener("submit", e => { e.preventDefault();
+  const el = document.getElementById("n" + document.getElementById("q").value.trim());
+  if (!el) { alert("그 번호는 아직 없어요"); return; }
+  el.scrollIntoView({behavior:"smooth", block:"center"}); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 2000); });
+</script>
+</body>
+</html>

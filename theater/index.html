@@ -103,14 +103,14 @@ details.pick[open] summary:after{content:" 닫기 ▴"}
   <header>
     <div class="hero">
       <img class="face" src="img/profile.jpg" alt="대수롭지않은극장 간판" width="80" height="80">
-      <div><h1>대수롭지않은극장</h1><p class="bio">대수롭지않은극장이 고른 생활 물건</p></div>
+      <div><h1>대수롭지않은극장</h1><p class="bio">극장이 강력 추천하는 물건 🛍️</p></div>
     </div>
     <p class="notice">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
     <div class="srch"><input id="s" type="search" placeholder="필요한 물건을 검색해 보세요" aria-label="물건 검색">
       <div class="chips" id="chips"><button type="button">담요</button><button type="button">커피</button><button type="button">두유</button><button type="button">로션</button><button type="button">보온병</button><button type="button">양말</button></div>
       <p class="smsg" id="smsg" role="status"></p></div>
     <nav class="cats" id="cats"></nav>
-    <p class="trust">누르면 쿠팡 쇼핑몰 화면이 열려요.<br>값, 배송, 반품은 그 화면에서 확인해요.</p>
+    <p class="trust">🥰 누르면 <b>쿠팡으로 바로 들어가져요.</b><br>구경만 해도 괜찮아요. 값, 배송, 반품은 쿠팡 화면에서 확인해요.</p>
     <details class="pick">
       <summary>영상 아래 번호로 찾기</summary>
       <div class="nums" id="nums"></div>
@@ -234,7 +234,7 @@ function card(it) {
   const rate = r ? `<p class="rate">쿠팡 별점 5점 만점에 ${r[0]}, 리뷰 ${Number(r[1]).toLocaleString("ko-KR")}개(${RATE_DAY} 기준)</p>` : "";
   const info = `${pic}<p class="title">${esc(it.title)}</p>${it.why ? `<p class="why">${esc(it.why)}</p>` : ""}${rate}<p class="name">${esc(it.name)}</p>`;
   const goods = live ? `<a class="goods" href="${esc(it.link)}" target="_blank" rel="noopener">${info}</a>` : `<div class="goods">${info}</div>`;
-  const btn = live ? `<a class="buy" href="${esc(it.link)}" target="_blank" rel="noopener">쿠팡에서 오늘 값 보기 ›</a>`
+  const btn = live ? `<a class="buy" href="${esc(it.link)}" target="_blank" rel="noopener">쿠팡으로 바로 가요 🥰 ›</a>`
                    : `<span class="buy empty">[쿠팡 링크 자리]</span>`;
   const ep = it.ep;
   return `<article class="item" id="n${it.n}"><div class="top">${nums.map(a => `<span class="num">${a}번</span>`).join("")}${ep ? `<span class="ep">극장 ${esc(ep)}에 나온 물건</span>` : ""}<span class="found">찾으시던 물건이에요</span></div>`

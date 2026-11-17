@@ -72,10 +72,18 @@ footer{margin-top:36px;text-align:center;color:var(--sub);font-size:12px;line-he
 // 번호(n)는 만든 순서대로 계속 늘리고 한 번 준 번호는 바꾸지 않는다(게시물에 "링크 N번"으로 적음, 벤치마킹 11/13).
 const NOTICE = [
   "이 포스팅은 선물하기 큐레이터 활동의 일환으로, 주문 발생 시 일정액의 수수료를 제공 받습니다.",
-  "고향사랑기부 링크로 기부하면 작성자에게 웰로 파트너스 수익이 지급될 수 있습니다."
+  "고향사랑기부 링크로 기부하면 작성자에게 웰로 파트너스 수익이 지급될 수 있습니다.",
+  "이 포스팅은 네이버 쇼핑 커넥트 활동의 일환으로, 판매 발생 시 수수료를 제공받습니다."
 ];
 const K = id => "https://gift-link.kakao.com/c/" + id;
 const SECTIONS = [
+  { title: "받자마자 웃는 동료 연말 선물 5", badge: "인스타 카드 11/17", go:"구경하기 →", items: [
+    { n:24, id:"sc24", url:"https://naver.me/5bCSN7Dp", who:"팀장님, 선배", name:"두르면 \"어디서 샀어?\" 소리 나는 보들 목도리" },
+    { n:25, id:"sc25", url:"https://naver.me/Grg9Unuc", who:"집들이, 동료", name:"방문 열면 호텔 로비 냄새, 디퓨저 3병" },
+    { n:26, id:"sc26", url:"https://naver.me/xdM61Bp9", who:"부담 없이 여럿", name:"만 원도 안 하는 향수 핸드크림 세트" },
+    { n:27, id:"sc27", url:"https://naver.me/xD8fqIEA", who:"알약 싫은 친구", name:"간식처럼 먹는 젤리 비타민C 2통" },
+    { n:28, id:"sc28", url:"https://naver.me/5LQ6vkwt", who:"아침마다 커피", name:"아침 커피가 점심까지 따끈, 책상 텀블러" }
+  ] },
   { title: "연말 선물, 상품권 말고 상자째 가는 6개", badge: "12/16까지 주소 받기", items: [
     { n:12, id:"CG1W94pa", who:"엄마 아빠", name:"부사사과 3.5kg, 현관 앞에 빨간 사과 한 상자" },
     { n:13, id:"Dz5UhMg6", who:"뭘 좋아하실지 모르는 어른", name:"오설록 프리미엄 티 컬렉션 10가지 맛" },
@@ -120,7 +128,7 @@ let h = "";
 for (const sec of SECTIONS) {
   h += `<section><div class="sec-head"><h2>${esc(sec.title)}</h2><span class="badge${sec.gray?" gray":""}">${esc(sec.badge)}</span></div><div class="grid">`;
   for (const it of sec.items) {
-    h += `<a class="item" id="n${it.n}" href="${K(it.id)}" target="_blank" rel="noopener"><div class="pic"><img src="img/${it.id}.jpg" alt="${esc(it.name)}" loading="lazy"><span class="num">${it.n}번</span></div><div class="body"><span class="who">${esc(it.who)}</span><span class="name">${esc(it.name)}</span><span class="go">선물하기 →</span></div></a>`;
+    h += `<a class="item" id="n${it.n}" href="${it.url || K(it.id)}" target="_blank" rel="noopener"><div class="pic"><img src="img/${it.id}.jpg" alt="${esc(it.name)}" loading="lazy"><span class="num">${it.n}번</span></div><div class="body"><span class="who">${esc(it.who)}</span><span class="name">${esc(it.name)}</span><span class="go">${sec.go || "선물하기 →"}</span></div></a>`;
   }
   h += `</div>`;
   if (sec.blog) h += `<a class="cta" href="${sec.blog.url}" target="_blank" rel="noopener">${esc(sec.blog.text)}</a>`;

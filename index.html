@@ -246,7 +246,7 @@ function filt(q, go2) {
   if (go2 && q && n) { const f = document.querySelector("#app a.item:not(.hide)"); if (f) f.scrollIntoView({behavior: "smooth", block: "center"}); }
   sMsg.innerHTML = !q ? "" : n ? `${n}개 찾았어요` : `'${esc(q)}' 물건은 여기엔 아직 없어요.<br>위 버튼 물건은 바로 있어요. <a href="https://cshop.naver.com/neoman_molla/products" target="_blank" rel="noopener">느루가 낋여온 특가 할인 템에서 더 찾아보기 ›</a>`;
 }
-sIn.addEventListener("input", () => filt(sIn.value));
+let sT; sIn.addEventListener("input", () => { clearTimeout(sT); sT = setTimeout(() => filt(sIn.value), /^\s*\d+\s*$/.test(sIn.value) ? 600 : 150); });  // 11/18 사장 '76이 없어': 번호를 치는 중 7에서 먼저 움직여 76까지 못 감 → 다 친 뒤 한 번만
 sIn.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); sIn.blur(); filt(sIn.value, true); } });
 document.getElementById("chips").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; sIn.value = b.textContent; filt(b.textContent, true); });
 document.getElementById("find").addEventListener("submit", e => { e.preventDefault();

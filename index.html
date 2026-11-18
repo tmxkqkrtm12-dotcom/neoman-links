@@ -254,6 +254,9 @@ document.getElementById("find").addEventListener("submit", e => { e.preventDefau
   if (!el) { alert("그 번호는 아직 없어요"); return; }
   if (sIn.value) { sIn.value = ""; filt(""); }
   el.scrollIntoView({behavior:"smooth", block:"center"}); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 2000); });
+// 11/19 본부: 주소 끝 #n15 처럼 번호를 붙이면 그 물건으로 바로 이동(노션 자료에서 번호 링크용)
+function goHash(){const m=/^#n(\d+)$/.exec(location.hash);if(!m)return;const el=document.getElementById("n"+m[1]);if(!el)return;el.scrollIntoView({block:"center"});el.style.outline="4px solid #F26B1D";el.style.borderRadius="12px";setTimeout(()=>{el.style.outline=""},4000)}
+window.addEventListener("hashchange",goHash);window.addEventListener("load",()=>setTimeout(goHash,300));
 </script>
 </body>
 </html>

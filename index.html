@@ -60,6 +60,9 @@ footer{margin-top:36px;text-align:center;color:var(--sub);font-size:12px;line-he
 .smsg{margin:8px 0 0;font-size:13px;color:var(--sub)}
 .smsg a{color:var(--accent);font-weight:700}
 .hide{display:none!important}
+.deal{margin:18px 0 0;padding:14px 12px;background:var(--accent);color:var(--accent-ink);border-radius:14px;font-size:19px;font-weight:800;line-height:1.35;letter-spacing:-.3px}
+.deal small{display:block;margin-top:4px;font-size:12px;font-weight:600;opacity:.9}
+.off{margin:-6px 0 10px;font-size:12px;font-weight:700;color:var(--accent)}
 </style>
 </head>
 <body>
@@ -68,10 +71,11 @@ footer{margin-top:36px;text-align:center;color:var(--sub);font-size:12px;line-he
     <img class="avatar" src="img/profile.jpg" alt="너만몰라 캐릭터 느루">
     <h1>너만몰라</h1>
     <p class="bio">다들 챙기는데 나만 몰랐던 돈, 혜택, 선물</p>
+    <div class="deal">최대 80% 할인템, 느루가 몰래 가져왔어요~<small>상품마다 할인 기간이 달라요. 눌러서 지금 가격을 확인해요.</small></div>
     <p class="notice" id="notice"></p>
     <form class="find" id="find"><input id="q" inputmode="numeric" placeholder="게시물에서 본 링크 번호" aria-label="링크 번호"><button>찾기</button></form>
     <div class="srch"><input id="s" type="search" placeholder="필요한 물건을 검색해 보세요!" aria-label="물건 검색">
-      <div class="chips" id="chips"><button type="button">핸드크림</button><button type="button">목도리</button><button type="button">텀블러</button><button type="button">초콜릿</button><button type="button">디퓨저</button><button type="button">사과</button></div>
+      <div class="chips" id="chips"><button type="button">핸드크림</button><button type="button">목도리</button><button type="button">텀블러</button><button type="button">초콜릿</button><button type="button">디퓨저</button><button type="button">사과</button><button type="button">고향사랑</button><button type="button">전기요</button><button type="button">수건</button></div>
       <p class="smsg" id="smsg" role="status"></p></div>
   </header>
   <main id="app"></main>
@@ -88,6 +92,69 @@ const NOTICE = [
 ];
 const K = id => "https://gift-link.kakao.com/c/" + id;
 const SECTIONS = [
+  { title: "10만 원 내고 세금 10만 원 돌려받는, 느루가 고른 고향 답례품", badge: "연말정산 전에", go:"답례품 보기 →", items: [
+    { n:30, id:"wl30", url:"https://www.welfarehello.com/r/yfNGtF", who:"고향사랑 대전", name:"성심당 상품권 3만 원권, 빵 사러 줄 서기 전에 먼저" },
+    { n:31, id:"wl31", url:"https://www.welfarehello.com/r/8Wn1oc", who:"고향사랑 광주 서구", name:"국내산 한돈 세트 최대 2kg, 굽기만 하면 저녁 끝" },
+    { n:32, id:"wl32", url:"https://www.welfarehello.com/r/WNFO50", who:"고향사랑 무주", name:"쌀 10kg에 1kg 더 얹어 주는 반딧불 쌀" },
+    { n:33, id:"wl33", url:"https://www.welfarehello.com/r/WZP5o3", who:"고향사랑 제주", name:"귤 상자에 은갈치 고등어까지, 연말 한정 제주 세트" },
+    { n:34, id:"wl34", url:"https://www.welfarehello.com/r/9NBJNk", who:"고향사랑 영주", name:"부사 사과 3kg 두 상자, 1+1로 총 6kg" },
+    { n:35, id:"wl35", url:"https://www.welfarehello.com/r/b4YKqm", who:"고향사랑 속초", name:"구워 먹는 속초 반건조 오징어 10마리" },
+    { n:36, id:"wl36", url:"https://www.welfarehello.com/r/kvV2cM", who:"고향사랑 고흥", name:"밥 두 공기 순삭, 고흥 꽃게장 최대 1.8kg" }
+  ]},
+  { title: "받으면 \"센스 있네\" 소리 듣는 선물 5", badge: "리뷰 많은 순", off:50, items: [
+    { n:37, id:"uqmkWqfr", who:"부모님, 직장 어른", name:"한 입 먹으면 달다 소리 나는 제주 감귤 3kg 이상" },
+    { n:38, id:"q1GUN5b2", who:"동료 여럿", name:"건조한 손과 입술 한 번에, 선물포장 핸드크림 립밤 세트" },
+    { n:39, id:"3sbrX66J", who:"가방 가벼운 게 좋은 친구", name:"폰 지갑 쏙 들어가는 마크니 스트링 파우치백 7종" },
+    { n:40, id:"k1P0gKII", who:"출근 준비 바쁜 사람", name:"빗질만 해도 볼륨이 사는 무선 빗고데기" },
+    { n:41, id:"qx5bF5fo", who:"2030 친구", name:"하트 별 도트 귀여운 유선 이어폰, C타입도 8핀도 있어요" }
+  ]},
+  { title: "퇴근하고 눕자마자 풀리는 겨울밤 4", badge: "리뷰 많은 순", off:58, items: [
+    { n:42, id:"aZiv5YDb", who:"퇴근하면 다리 무거운 사람", name:"소파에 앉아 발 올리면 따끈, 온열 종아리 마사지기" },
+    { n:43, id:"RJj9C81B", who:"혼자 자는 겨울밤", name:"끌어안고 자는 80cm 고양이 바디필로우" },
+    { n:44, id:"bDaClVu9", who:"책상 건조한 사람", name:"핑구가 지켜 주는 책상 위 무드등 미니 가습기" },
+    { n:45, id:"XkLwj18p", who:"허리 배 시린 날", name:"허리 배 어깨 어디든 따끈한 전기 온열찜질기" }
+  ]},
+  { title: "자취방 식탁이 카페 되는 주방템 2", badge: "리뷰 많은 순", items: [
+    { n:46, id:"3KR4uIHs", who:"집들이, 홈카페", name:"식탁에 올리면 호텔 바 분위기, 크리스탈 와인잔 2P" },
+    { n:47, id:"bhWYp8O6", who:"자취방 식탁", name:"채소색 미니 접시 5개, 앞접시 하나로 브런치 카페" }
+  ]},
+  { title: "수건 한 장, 청소기 하나로 집 컨디션 올리는 2", badge: "리뷰 많은 순", items: [
+    { n:48, id:"8I6UXXsd", who:"집들이, 신혼", name:"호텔 수건 4장 세트, 샤워 끝에 집이 호텔 되는 40수 코마사" },
+    { n:49, id:"JvOmKWWv", who:"이불 털기 귀찮은 집", name:"눕기 전 침대 진드기부터, 유선 이불 침구청소기" }
+  ]},
+  { title: "발 시린 겨울, 느루가 고른 따뜻템 4", badge: "네이버 할인", off:67, go:"구경하기 →", items: [
+    { n:50, id:"sc50", url:"https://naver.me/5ajfvPAA", who:"침대 추운 자취생", name:"누우면 이불 속이 따끈, 곰표 탄소매트 전기요 미니싱글" },
+    { n:51, id:"sc51", url:"https://naver.me/5Qsgr0lB", who:"전기장판 걱정되는 사람", name:"빨아서 쓰는 온수매트 1인용, 3년 AS" },
+    { n:52, id:"sc52", url:"https://naver.me/GRDNPtF1", who:"방이 추운 날", name:"켜자마자 주황빛 따뜻, 호메오 카본 미니 스토브" },
+    { n:53, id:"sc53", url:"https://naver.me/GQGxOsVH", who:"발 시려 뒤척이는 밤", name:"신으면 발이 폭신, 수면양말 4켤레" }
+  ], blog: { url:"https://cshop.naver.com/neoman_molla/products", text:"🔥 느루가 끓여 온 할인템 전부 보러 가기" } },
+  { title: "설거지 귀찮은 날 살려 주는 주방 필수템", badge: "쿠팡 랭킹 1위권", off:54, go:"구경하기 →", items: [
+    { n:54, id:"cp54", url:"https://link.coupang.com/a/iLLScKSDka", who:"설거지 많은 집", name:"13L 한 통이면 한참 걱정 없는 주방세제" },
+    { n:55, id:"cp55", url:"https://link.coupang.com/a/iLLSGUAi7g", who:"요리 자주 하는 집", name:"톡톡 뽑아 쓰는 키친타올 15개" },
+    { n:56, id:"cp56", url:"https://link.coupang.com/a/iLLTbigwhg", who:"반찬 소분러", name:"중형 대형 100장, 냉동실 정리 끝 지퍼백" },
+    { n:57, id:"cp57", url:"https://link.coupang.com/a/iLL1uE0mjI", who:"손 트는 사람", name:"잘 안 찢어지는 고무장갑 5세트" },
+    { n:58, id:"cp58", url:"https://link.coupang.com/a/iLL1YQWfjE", who:"기름때 싫은 사람", name:"거품 잘 나는 스펀지 수세미 6개" }
+  ]},
+  { title: "욕실이랑 빨래, 떨어지면 큰일 나는 것들", badge: "쿠팡 랭킹 1위권", off:44, go:"구경하기 →", items: [
+    { n:59, id:"cp59", url:"https://link.coupang.com/a/iLLTFh92ho", who:"식구 많은 집", name:"3겹 화장지 90롤, 한동안 장 안 봐도 됨" },
+    { n:60, id:"cp60", url:"https://link.coupang.com/a/iLLUJTV1H2", who:"빨래 몰아 하는 사람", name:"드럼용 액상세제 3L 4통" },
+    { n:61, id:"cp61", url:"https://link.coupang.com/a/iLLVd5OMMe", who:"포근한 빨래파", name:"20L 대용량 섬유유연제, 향 오래감" },
+    { n:62, id:"cp62", url:"https://link.coupang.com/a/iLLVIgplXo", who:"욕실 곰팡이 때문에 속 터진 사람", name:"뿌리고 기다리면 끝, 곰팡이 세정제 3개" },
+    { n:63, id:"cp63", url:"https://link.coupang.com/a/iLLWcBdtOS", who:"아기 있는 집", name:"캡형 물티슈 80매 10팩" },
+    { n:64, id:"cp64", url:"https://link.coupang.com/a/iLL2s3AGeO", who:"잇몸 예민한 사람", name:"초미세모 칫솔 6개" }
+  ]},
+  { title: "집에 하나씩은 꼭 있어야 하는 생활템", badge: "쿠팡 랭킹 1위권", off:43, go:"구경하기 →", items: [
+    { n:65, id:"cp65", url:"https://link.coupang.com/a/iLLXPVo8K4", who:"옷장 꽉 찬 사람", name:"안 휘는 스텐 옷걸이 60개" },
+    { n:66, id:"cp66", url:"https://link.coupang.com/a/iLLYjQWX2O", who:"여름 이불 둘 데 없는 사람", name:"이불 부피 반으로, 압축 파우치 2개" },
+    { n:67, id:"cp67", url:"https://link.coupang.com/a/iLLYNS389I", who:"전기 히터 쓰는 집", name:"과부하 차단 멀티탭 5구" },
+    { n:68, id:"cp68", url:"https://link.coupang.com/a/iLL2W0tPlk", who:"리모컨 자꾸 죽는 집", name:"AA 건전지 20개 쟁이기" },
+    { n:69, id:"cp69", url:"https://link.coupang.com/a/iLL40O9Ox2", who:"미세먼지 심한 날", name:"KF94 새부리형 마스크 100장" }
+  ]},
+  { title: "장바구니에 꼭 담기는 간식이랑 음료", badge: "쿠팡 랭킹 1위권", off:33, go:"구경하기 →", items: [
+    { n:70, id:"cp70", url:"https://link.coupang.com/a/iLL324NRgy", who:"입 심심한 오후", name:"하루 한 봉 견과 50개" },
+    { n:71, id:"cp71", url:"https://link.coupang.com/a/iLL4wNh8zk", who:"탄산 못 끊는 사람", name:"제로콜라 미니캔 30개" },
+    { n:72, id:"cp72", url:"https://link.coupang.com/a/iLL5uWlcaq", who:"물 많이 마시는 집", name:"무라벨 생수 2L 18병" }
+  ]},
   { title: "느루가 몰래 쟁인 정리템", badge: "새로 들어옴 11/17", go:"구경하기 →", items: [
     { n:29, id:"cp29", url:"https://link.coupang.com/a/iKUjPrC404", who:"모자 많은 사람", name:"옷장 위 모자 산사태 끝, 창문 달린 모자 보관함 1+1" }
   ]},
@@ -140,7 +207,7 @@ const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","
 document.getElementById("notice").textContent = NOTICE.join(" ");
 let h = "";
 for (const sec of SECTIONS) {
-  h += `<section><div class="sec-head"><h2>${esc(sec.title)}</h2><span class="badge${sec.gray?" gray":""}">${esc(sec.badge)}</span></div><div class="grid">`;
+  h += `<section><div class="sec-head"><h2>${esc(sec.title)}</h2><span class="badge${sec.gray?" gray":""}">${esc(sec.badge)}</span></div>${sec.off ? `<p class="off">최대 ${sec.off}% 할인</p>` : ""}<div class="grid">`;
   for (const it of sec.items) {
     h += `<a class="item" id="n${it.n}" href="${it.url || K(it.id)}" target="_blank" rel="noopener"><div class="pic"><img src="img/${it.id}.jpg" alt="${esc(it.name)}" loading="lazy"><span class="num">${it.n}번</span></div><div class="body"><span class="who">${esc(it.who)}</span><span class="name">${esc(it.name)}</span><span class="go">${sec.go || "선물하기 →"}</span></div></a>`;
   }

@@ -72,12 +72,12 @@ footer{margin-top:36px;text-align:center;color:var(--sub);font-size:12px;line-he
     <img class="avatar" src="img/profile.jpg" alt="너만몰라 캐릭터 느루">
     <h1>너만몰라</h1>
     <p class="bio">다들 챙기는데 나만 몰랐던 돈, 혜택, 선물</p>
-    <div class="deal">최대 80% 할인템, 느루가 몰래 가져왔어요~<small>상품마다 할인 기간이 달라요. 눌러서 지금 가격을 확인해요.</small></div>
+    <a class="deal" href="#app" style="display:block;text-decoration:none">최대 80% 할인템, 느루가 몰래 가져왔어요~<small>상품마다 할인 기간이 달라요. 눌러서 지금 가격을 확인해요 👇</small></a>
     <a class="shopbtn" href="https://cshop.naver.com/neoman_molla/products" target="_blank" rel="noopener">🔥 느루가 낋여온 특가 할인 템! 네이버 가게 43개 보러 가기 ›</a>
     <p class="notice" id="notice"></p>
-    <form class="find" id="find"><input id="q" inputmode="numeric" placeholder="게시물에서 본 링크 번호" aria-label="링크 번호"><button>찾기</button></form>
-    <div class="srch"><input id="s" type="search" placeholder="필요한 물건을 검색해 보세요!" aria-label="물건 검색">
-      <div class="chips" id="chips"><button type="button">핸드크림</button><button type="button">목도리</button><button type="button">텀블러</button><button type="button">초콜릿</button><button type="button">디퓨저</button><button type="button">사과</button><button type="button">고향사랑</button><button type="button">전기요</button><button type="button">수건</button></div>
+    <form class="find" id="find" style="display:none"><input id="q"><button>찾기</button></form>
+    <div class="srch"><input id="s" type="search" placeholder="카드에서 본 번호나 물건 이름 (예: 29, 담요)" aria-label="물건 검색">
+      <div class="chips" id="chips"><button type="button">난방</button><button type="button">운동화</button><button type="button">핸드크림</button><button type="button">목도리</button><button type="button">텀블러</button><button type="button">초콜릿</button><button type="button">디퓨저</button><button type="button">사과</button><button type="button">고향사랑</button><button type="button">전기요</button><button type="button">수건</button></div>
       <p class="smsg" id="smsg" role="status"></p></div>
   </header>
   <main id="app"></main>
@@ -133,7 +133,7 @@ const SECTIONS = [
     { n:51, id:"sc51", url:"https://naver.me/5Qsgr0lB", who:"전기장판 걱정되는 사람", name:"빨아서 쓰는 온수매트 1인용, 3년 AS" },
     { n:52, id:"sc52", url:"https://naver.me/GRDNPtF1", who:"방이 추운 날", name:"켜자마자 주황빛 따뜻, 호메오 카본 미니 스토브" },
     { n:53, id:"sc53", url:"https://naver.me/GQGxOsVH", who:"발 시려 뒤척이는 밤", name:"신으면 발이 폭신, 수면양말 4켤레" }
-  ], blog: { url:"https://cshop.naver.com/neoman_molla/products", text:"🔥 느루가 끓여 온 할인템 전부 보러 가기" } },
+  ], blog: { url:"https://cshop.naver.com/neoman_molla/products", text:"🔥 느루가 낋여온 특가 할인 템 전부 보러 가기" } },
   { title: "설거지 귀찮은 날 살려 주는 주방 필수템", badge: "쿠팡 랭킹 1위권", off:54, go:"구경하기 →", items: [
     { n:54, id:"cp54", url:"https://link.coupang.com/a/iLLScKSDka", who:"설거지 많은 집", name:"13L 한 통이면 한참 걱정 없는 주방세제" },
     { n:55, id:"cp55", url:"https://link.coupang.com/a/iLLSGUAi7g", who:"요리 자주 하는 집", name:"톡톡 뽑아 쓰는 키친타올 15개" },
@@ -170,7 +170,7 @@ const SECTIONS = [
     { n:26, id:"sc26", url:"https://naver.me/xdM61Bp9", who:"부담 없이 여럿", name:"만 원도 안 하는 향수 핸드크림 세트" },
     { n:27, id:"sc27", url:"https://naver.me/xD8fqIEA", who:"알약 싫은 친구", name:"간식처럼 먹는 젤리 비타민C 2통" },
     { n:28, id:"sc28", url:"https://naver.me/5LQ6vkwt", who:"아침마다 커피", name:"아침 커피가 점심까지 따끈, 책상 텀블러" }
-  ], blog: { url:"https://cshop.naver.com/neoman_molla/products", text:"🔥 느루가 끓여 온 할인템 전부 보러 가기" } },
+  ], blog: { url:"https://cshop.naver.com/neoman_molla/products", text:"🔥 느루가 낋여온 특가 할인 템 전부 보러 가기" } },
   { title: "연말 선물, 상품권 말고 상자째 가는 6개", badge: "12/16까지 주소 받기", items: [
     { n:12, id:"CG1W94pa", who:"엄마 아빠", name:"부사사과 3.5kg, 현관 앞에 빨간 사과 한 상자" },
     { n:13, id:"Dz5UhMg6", who:"뭘 좋아하실지 모르는 어른", name:"오설록 프리미엄 티 컬렉션 10가지 맛" },
@@ -231,6 +231,7 @@ document.getElementById("app").innerHTML = h;
 const sIn = document.getElementById("s"), sMsg = document.getElementById("smsg");
 function filt(q, go2) {
   q = q.trim().replace(/\s+/g, "");
+  if (/^\d+$/.test(q)) { const el = document.getElementById("n" + q); document.querySelectorAll("#app .hide").forEach(x => x.classList.remove("hide")); if (el) { if (go2 || q.length >= 1) { el.scrollIntoView({behavior:"smooth", block:"center"}); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 2000); } sMsg.innerHTML = q + "번 찾았어요"; } else { sMsg.innerHTML = q + "번은 아직 없어요"; } return; }
   let n = 0;
   document.querySelectorAll("#app section").forEach(sec => {
     const items = sec.querySelectorAll("a.item");
@@ -241,7 +242,7 @@ function filt(q, go2) {
     n += shown;
   });
   if (go2 && q && n) { const f = document.querySelector("#app a.item:not(.hide)"); if (f) f.scrollIntoView({behavior: "smooth", block: "center"}); }
-  sMsg.innerHTML = !q ? "" : n ? `${n}개 찾았어요` : `'${esc(q)}' 물건은 여기엔 아직 없어요.<br>위 버튼 물건은 바로 있어요. <a href="https://cshop.naver.com/neoman_molla/products" target="_blank" rel="noopener">느루가 끓여 온 할인템에서 더 찾아보기 ›</a>`;
+  sMsg.innerHTML = !q ? "" : n ? `${n}개 찾았어요` : `'${esc(q)}' 물건은 여기엔 아직 없어요.<br>위 버튼 물건은 바로 있어요. <a href="https://cshop.naver.com/neoman_molla/products" target="_blank" rel="noopener">느루가 낋여온 특가 할인 템에서 더 찾아보기 ›</a>`;
 }
 sIn.addEventListener("input", () => filt(sIn.value));
 sIn.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); sIn.blur(); filt(sIn.value, true); } });

@@ -229,7 +229,10 @@ for (const sec of SECTIONS) {
 }
 h += `<section><div class="sec-head"><h2>연말 전에 챙길 혜택</h2></div>`;
 for (const e of EXTRA) h += `<a class="wide" href="${e.url}" target="_blank" rel="noopener"><div><div class="t">${esc(e.t)}</div><div class="s">${esc(e.s)}</div></div><span class="arrow">›</span></a>`;
-h += `</section><section><div class="sec-head"><h2>블로그 새 글</h2></div>`;
+h += `</section>`;
+// 11/19 17:4x 사장 말 "상품페이지에서 반품을 하고싶다고 하면 우리는 어떻게 해야해? 무사히 해드리고 싶은데"
+h += `<section><div class="sec-head"><h2>반품, 교환은 이렇게 해요</h2></div><details class="wide" style="display:block;padding:14px 16px"><summary style="cursor:pointer;font-weight:700">산 물건을 반품하고 싶어요 (눌러서 보기)</summary><div class="s" style="margin-top:10px;line-height:1.7">느루 잇템은 물건을 직접 파는 곳이 아니라, 좋은 물건을 골라 판매처로 연결해 드리는 곳이에요. 그래서 반품과 교환은 <b>산 곳에서 바로</b> 하시면 가장 빨라요.<br><br><b>쿠팡에서 샀다면</b>: 쿠팡 앱 → 마이쿠팡 → 주문목록 → 그 물건의 '교환, 반품 신청'. 기간과 반품비는 상품 상세페이지의 '교환, 반품 안내'에 따라 달라요.<br><b>카카오 선물하기에서 받았거나 샀다면</b>: 카카오톡 → 선물하기 → 선물함 → 고객센터 → 상담하기로 물어보세요.<br><b>네이버 가게(쇼핑커넥트)에서 샀다면</b>: 네이버 주문 내역에서 그 물건을 열고 반품, 교환을 요청해요. 판매하는 가게마다 기간과 비용이 달라요.<br><b>웰로(고향사랑기부)라면</b>: 기부라서 결제 뒤 취소가 어려워요. 답례품이 깨졌거나 잘못 왔다면 웰로 고객센터와 그 지역 답례품 안내에 먼저 알려 주세요.<br><br>반품이 막히거나 판매처 답이 없으면 인스타 @neoman.molla 로 알려 주세요. 같이 확인해 드릴게요.</div></details></section>`;
+h += `<section><div class="sec-head"><h2>블로그 새 글</h2></div>`;
 for (const b of BLOG) h += `<a class="wide" href="${b.url}" target="_blank" rel="noopener"><div class="t">${esc(b.t)}</div><span class="arrow">›</span></a>`;
 h += `<a class="cta" href="https://blog.naver.com/lee1994_" target="_blank" rel="noopener">너만몰라 블로그 전체 보기</a></section>`;
 document.getElementById("app").innerHTML = h;

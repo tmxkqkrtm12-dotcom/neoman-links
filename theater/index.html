@@ -280,7 +280,7 @@ window.addEventListener("hashchange", hashGo); hashGo();
 // 11/17 사장 말 '사이트마다 검색 창도 하나 … 필요하신게 있으면 물건을 검색하세요!': 제목, 이유, 상품 이름 글자로 거름
 const sIn = document.getElementById("s"), sMsg = document.getElementById("smsg");
 function filt(q, go2) {
-  q = q.trim().replace(/\s+/g, "");
+  q = q.trim().replace(/\s+/g, ""); { const mm = /^(?:no\.?|#|번호)?(\d+)(?:번째|번|호)?\.?$/i.exec(q); if (mm) q = mm[1]; }  // 11/19 사장 "80번을 치면 안나와": 80번, #80, 80호도 번호로
   let n = 0;
   document.querySelectorAll("#app section").forEach(sec => {
     const items = sec.querySelectorAll(".item");

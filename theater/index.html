@@ -96,6 +96,14 @@ details.pick[open] summary:after{content:" 닫기 ▴"}
 .chips button{font:inherit;font-size:20px;font-weight:800;border:2px solid var(--line);background:#fff;color:var(--ink);padding:8px 14px;border-radius:999px}
 .smsg{margin:10px 0 0;font-size:20px;font-weight:700;color:var(--sub)}
 .hide{display:none!important}
+/* 11/20 이번 주 인기 칸(hq\기획\링크페이지_신뢰설계_1120.md): 매주 월요일 본부가 HOT 번호만 바꿈 */
+.hot{margin-top:12px;padding:12px 14px 14px;background:#FFF7EC;border:2px solid #E08A4C;border-radius:16px}
+.hot-q{margin:0 0 8px;font-size:22px;font-weight:900}
+.hot-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hot-btns a{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;border-radius:14px;background:#fff;
+  border:2px solid var(--line);color:var(--ink);text-decoration:none;font-size:20px;font-weight:900;text-align:center;line-height:1.25}
+.hot-rate{font-size:16px;font-weight:800;color:#1F5130}
+.hot-btns img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:10px;background:#fff}
 </style>
 </head>
 <body>
@@ -106,11 +114,12 @@ details.pick[open] summary:after{content:" 닫기 ▴"}
       <div><h1>대수롭지않은극장</h1><p class="bio">극장이 강력 추천하는 물건 🛍️</p></div>
     </div>
     <p class="notice">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+    <div class="hot"><p class="hot-q">❄️ 추워지기 전에 챙겨 둘 것</p><div class="hot-btns" id="hot"></div></div>
     <div class="srch"><input id="s" type="search" placeholder="필요한 물건을 검색해 보세요" aria-label="물건 검색">
       <div class="chips" id="chips"><button type="button">담요</button><button type="button">커피</button><button type="button">두유</button><button type="button">로션</button><button type="button">보온병</button><button type="button">양말</button></div>
       <p class="smsg" id="smsg" role="status"></p></div>
     <nav class="cats" id="cats"></nav>
-    <p class="trust">🥰 누르면 <b>쿠팡으로 바로 들어가져요.</b><br>구경만 해도 괜찮아요. 값, 배송, 반품은 쿠팡 화면에서 확인해요.</p>
+    <p class="trust">🥰 누르면 <b>쿠팡으로 바로 들어가져요.</b><br>구경만 해도 괜찮아요. 값, 배송, 반품은 쿠팡 화면에서 확인해요.<br>✔ 쿠팡에서 많이들 사는 물건 위주로 골라요<br>✔ 사진은 판매자 사진 그대로예요</p>
     <details class="pick">
       <summary>영상 아래 번호로 찾기</summary>
       <div class="nums" id="nums"></div>
@@ -159,7 +168,7 @@ const SECTIONS = [
   { n:43, ep:"", scene:"", title:"밥 한 공기 뚝딱 도시락김", why:"한 봉지 뜯으면 밥 한 공기가 눈앞에서 사라져요", name:"삼부자 도시락김, 5g, 72개", link:"https://link.coupang.com/a/iMnOadtNYW", img:"https://thumbnail3.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/image_audit/prod/3df7859e-3774-4dd4-9946-0df5b4442455_composition_base_0.png" }
   ] },
   { title: "어르신 장바구니에 실제로 담긴 것", badge: "새로 올라옴", items: [
-  { n:42, ep:"", scene:"", title:"껍질째 먹는 청송 꿀사과", why:"5kg 가정용, 한 달에 200명 넘게 사요", name:"훈이네 경북 청송 꿀사과, 5kg(가정용 소과)", link:"https://link.coupang.com/a/iKy5eD7gDQ", img:"n42.jpg" },
+  { n:42, ep:"", scene:"", title:"껍질째 먹는 청송 꿀사과", why:"5kg 가정용 상자로 와요", name:"훈이네 경북 청송 꿀사과, 5kg(가정용 소과)", link:"https://link.coupang.com/a/iKy5eD7gDQ", img:"n42.jpg" },
   { n:38, ep:"", scene:"", title:"난각번호 1번 자연방사 유정란", why:"60구 한 판, 아침마다 하나씩", name:"HACCP 난각번호 1번 자연방사 유정란, 60구", link:"https://link.coupang.com/a/iKy0zRxylE", img:"n38.jpg" },
   { n:39, ep:"", scene:"", title:"냉장고 없이 두는 멸균우유", why:"190ml 48팩, 무항생제", name:"건국유업 착한목장 무항생제 멸균우유, 190ml, 48개", link:"https://link.coupang.com/a/iKy1ZpV2ya", img:"n39.jpg" },
   { n:40, ep:"", scene:"", title:"고소한 두부과자 간식", why:"오븐에 구운 두부칩, 80g 15봉", name:"다식담 오븐에 구운 두부과자, 80g, 15개", link:"https://link.coupang.com/a/iKy2HvefQW", img:"n40.jpg" },
@@ -235,7 +244,7 @@ for (const [cat, ns] of Object.entries(CATS)) {
   if (!items.length) continue;
   k++;
   nav += `<a href="#c${k}">${esc(cat)}</a>`;
-  h += `<section id="c${k}"><div class="sec-head"><h2>${esc(cat)}</h2><span class="badge">${items.length}가지</span></div><div class="grid">`;
+  h += `<section id="c${k}"><div class="sec-head"><h2>${esc(cat)}</h2></div><div class="grid">`;
   for (const it of items) { used.add(it.n); h += card(it); }
   h += `</div><a class="more" href="#cats">위로 가서 분류 다시 고르기 ▲</a></section>`;
 }
@@ -245,6 +254,11 @@ if (rest.length) {
   h += `<section id="c${k}"><div class="sec-head"><h2>그 밖의 물건</h2></div><div class="grid">${rest.map(card).join("")}</div></section>`;
 }
 document.getElementById("cats").innerHTML = nav;
+// 11/20 이번 주 인기 칸: 계절 인기 물건 번호(링크 있는 것만 보임). 점검 순서 hq\기획\링크페이지_인기채우기_후보_1120.md
+const HOT = [53, 54, 57, 15];
+document.getElementById("hot").innerHTML = HOT.map(n => byN[n]).filter(Boolean).map(it =>
+  `<a href="#n${it.n}" data-n="${it.n}"><img src="${isUrl(it.img) ? esc(it.img) : "img/" + esc(it.img)}"${isUrl(it.img) ? ' referrerpolicy="no-referrer"' : ""} alt="${esc(it.name)} 판매자 사진" loading="lazy">${esc(it.title)}${RATE[it.n] ? `<span class="hot-rate">⭐ ${RATE[it.n][0]}, 리뷰 ${Number(RATE[it.n][1]).toLocaleString("ko-KR")}개(${RATE_DAY})</span>` : ""}</a>`).join("");  // 별점은 RATE(쿠팡 화면 값)에 있는 것만, 없으면 줄을 안 보임
+document.getElementById("hot").addEventListener("click", e => { const a = e.target.closest("a"); if (!a) return; e.preventDefault(); go(a.dataset.n); });
 function card(it) {
   const nums = [it.n, ...(it.also || [])];
   for (const a of nums) { alias[a] = it.n; chips.push(a); }
@@ -256,7 +270,7 @@ function card(it) {
   const rate = r ? `<p class="rate">쿠팡 별점 5점 만점에 ${r[0]}, 리뷰 ${Number(r[1]).toLocaleString("ko-KR")}개(${RATE_DAY} 기준)</p>` : "";
   const info = `${pic}<p class="title">${esc(it.title)}</p>${it.why ? `<p class="why">${esc(it.why)}</p>` : ""}${rate}<p class="name">${esc(it.name)}</p>`;
   const goods = live ? `<a class="goods" href="${esc(it.link)}" target="_blank" rel="noopener">${info}</a>` : `<div class="goods">${info}</div>`;
-  const btn = live ? `<a class="buy" href="${esc(it.link)}" target="_blank" rel="noopener">쿠팡으로 바로 가요 🥰 ›</a>`
+  const btn = live ? `<a class="buy" href="${esc(it.link)}" target="_blank" rel="noopener">쿠팡에서 오늘 값 보기 ›</a>`
                    : `<span class="buy empty">[쿠팡 링크 자리]</span>`;
   const ep = it.ep;
   return `<article class="item" id="n${it.n}"><div class="top">${nums.map(a => `<span class="num">${a}번</span>`).join("")}${ep ? `<span class="ep">극장 ${esc(ep)}에 나온 물건</span>` : ""}<span class="found">찾으시던 물건이에요</span></div>`
@@ -296,6 +310,7 @@ function filt(q, go2) {
 }
 const clearS = () => { if (sIn.value) { sIn.value = ""; filt(""); } };
 document.getElementById("nums").addEventListener("click", clearS, true);
+document.getElementById("hot").addEventListener("click", clearS, true);
 window.addEventListener("hashchange", clearS, true);
 sIn.addEventListener("input", () => filt(sIn.value));
 sIn.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); sIn.blur(); filt(sIn.value, true); } });

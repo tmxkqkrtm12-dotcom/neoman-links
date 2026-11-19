@@ -6,7 +6,7 @@
 <title>느루 잇템 🛒 할인템 다 모음</title>
 <meta name="description" content="다들 챙기는데 나만 몰랐던 돈, 혜택, 선물 링크를 한 곳에 모았어요.">
 <meta property="og:title" content="느루 잇템 🛒 할인템 다 모음">
-<meta property="og:description" content="수능 선물, 연말 선물, 고향사랑기부, 블로그 새 글">
+<meta property="og:description" content="겨울 따끈템, 연말 선물, 고향사랑기부 답례품, 느루가 고른 것만">
 <meta property="og:image" content="img/profile.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
@@ -24,7 +24,7 @@ header{text-align:center}
 h1{font-size:22px;margin:12px 0 4px;letter-spacing:-.3px}
 .bio{color:var(--sub);font-size:15px;margin:0}
 .notice{margin:18px 0 0;padding:10px 12px;background:#FBF8F3;border:1px solid var(--line);border-radius:10px;
-  color:var(--sub);font-size:12px;line-height:1.55;text-align:left}
+  color:var(--sub);font-size:13px;line-height:1.55;text-align:left;white-space:pre-line}
 section{margin-top:30px}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:12px}
 h2{font-size:18px;margin:0;letter-spacing:-.3px}
@@ -63,6 +63,18 @@ footer{margin-top:36px;text-align:center;color:var(--sub);font-size:12px;line-he
 .deal{margin:18px 0 0;padding:14px 12px;background:var(--accent);color:var(--accent-ink);border-radius:14px;font-size:19px;font-weight:800;line-height:1.35;letter-spacing:-.3px}
 .deal small{display:block;margin-top:4px;font-size:12px;font-weight:600;opacity:.9}
 .off{margin:-6px 0 10px;font-size:12px;font-weight:700;color:var(--accent)}
+/* 11/20 신뢰 설계(hq\기획\링크페이지_신뢰설계_1120.md): 고른 기준 3줄, 이번 주 픽, 판매처 칩, 버튼 모양 */
+.trust{list-style:none;margin:10px 0 0;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:12px;
+  display:flex;flex-direction:column;gap:4px;text-align:left;font-size:13px;font-weight:700;color:#2F5D3A}
+.pickbox{margin-top:24px}
+.pickrow{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.pickrow a{flex:0 0 132px;scroll-snap-align:start;background:#fff;border:2px solid var(--accent);border-radius:14px;overflow:hidden;
+  text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.pickrow img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eee}
+.pickrow .pn{font-size:13px;font-weight:700;line-height:1.35;padding:8px 8px 0}
+.pickrow .pg{margin-top:auto;padding:6px 8px 8px;font-size:12px;font-weight:800;color:var(--accent)}
+.store{position:absolute;right:8px;bottom:8px;background:#fff;color:var(--ink);font-size:11px;font-weight:800;padding:3px 7px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.go{display:block;text-align:center;background:var(--accent);color:#fff!important;border-radius:10px;padding:9px 6px;min-height:40px;line-height:1.5}
 .shopbtn{display:block;margin:10px 0 0;padding:14px 16px;border-radius:14px;background:#03c75a;color:#fff;font-weight:800;font-size:17px;text-align:center;text-decoration:none}
 </style>
 </head>
@@ -72,9 +84,10 @@ footer{margin-top:36px;text-align:center;color:var(--sub);font-size:12px;line-he
     <img class="avatar" src="img/profile.jpg" alt="너만몰라 캐릭터 느루">
     <h1>느루 잇템 🛒 할인템 다 모음</h1>
     <p class="bio">다들 챙기는데 나만 몰랐던 돈, 혜택, 선물</p>
-    <a class="deal" href="#app" style="display:block;text-decoration:none">최대 80% 할인템, 느루가 몰래 가져왔어요~<small>상품마다 할인 기간이 달라요. 눌러서 지금 가격을 확인해요 👇</small></a>
-    <a class="shopbtn" href="https://cshop.naver.com/neoman_molla/products" target="_blank" rel="noopener">🔥 네이버로 바로 사기, 느루가 낋여온 특가 할인 템! ›</a>
+    <a class="deal" id="deal" href="#app" style="display:block;text-decoration:none">겨울 따끈템부터 연말 선물까지, 느루가 몰래 쟁여 뒀어요<small>할인 기간은 물건마다 달라요. 눌러서 지금 가격을 바로 봐요 👇</small></a>
+    <ul class="trust"><li>✔ 쿠팡 랭킹, 리뷰 많은 순 위주로 골라요</li><li>✔ 사진은 판매처 사진 그대로</li><li>✔ 값, 배송, 반품은 산 곳에서 바로</li></ul>
     <p class="notice" id="notice"></p>
+    <a class="shopbtn" href="https://cshop.naver.com/neoman_molla/products" target="_blank" rel="noopener">🔥 느루가 낋여온 특가 할인 템! 바로 보기 ›</a>
     <form class="find" id="find" style="display:none"><input id="q"><button>찾기</button></form>
     <div class="srch"><input id="s" type="search" placeholder="카드에서 본 번호나 물건 이름 (예: 29, 담요)" aria-label="물건 검색">
       <div class="chips" id="chips"><button type="button">난방</button><button type="button">운동화</button><button type="button">핸드크림</button><button type="button">목도리</button><button type="button">텀블러</button><button type="button">초콜릿</button><button type="button">디퓨저</button><button type="button">사과</button><button type="button">고향사랑</button><button type="button">전기요</button><button type="button">수건</button></div>
@@ -94,12 +107,12 @@ const NOTICE = [
 ];
 const K = id => "https://gift-link.kakao.com/c/" + id;
 const SECTIONS = [
-  { title: "키 크고 발 편한 반짝이 운동화", badge: "최대 56% 할인", off:56, go:"구경하기 →", items: [
+  { title: "키 크고 발 편한 반짝이 운동화", badge: "", off:56, go:"구경하기 →", items: [
     { n:73, id:"cp73", url:"https://link.coupang.com/a/iLPVuuKsW4", who:"사진 찍을 때 키 고민인 사람", name:"별 큐빅 박힌 퀼팅 운동화, 티 안 나게 5cm" },
     { n:74, id:"cp74", url:"https://link.coupang.com/a/iLPV0XdTkO", who:"하루 종일 걷는 사람", name:"천연 소가죽 통굽 운동화, 발 편하게 6cm" },
     { n:75, id:"cp75", url:"https://link.coupang.com/a/iLRc63je1Y", who:"치마에도 바지에도 키 7cm 더 갖고 싶은 사람", name:"양가죽 밸런스힐 운동화, 감쪽같이 7cm" }
   ]},
-  { title: "10만 원 내고 세금 10만 원 돌려받는, 느루가 고른 고향 답례품", badge: "연말정산 전에", go:"답례품 보기 →", items: [
+  { title: "10만 원 내고 세금 10만 원 돌려받는, 느루가 고른 고향 답례품", badge: "연말정산 전에", go:"답례품 고르러 가기 ›", items: [
     { n:30, id:"wl30", url:"https://www.welfarehello.com/r/yfNGtF", who:"고향사랑 대전", name:"성심당 상품권 3만 원권, 빵 사러 줄 서기 전에 먼저" },
     { n:31, id:"wl31", url:"https://www.welfarehello.com/r/8Wn1oc", who:"고향사랑 광주 서구", name:"국내산 한돈 세트 최대 2kg, 굽기만 하면 저녁 끝" },
     { n:32, id:"wl32", url:"https://www.welfarehello.com/r/WNFO50", who:"고향사랑 무주", name:"쌀 10kg에 1kg 더 얹어 주는 반딧불 쌀" },
@@ -108,20 +121,20 @@ const SECTIONS = [
     { n:35, id:"wl35", url:"https://www.welfarehello.com/r/b4YKqm", who:"고향사랑 속초", name:"구워 먹는 속초 반건조 오징어 10마리" },
     { n:36, id:"wl36", url:"https://www.welfarehello.com/r/kvV2cM", who:"고향사랑 고흥", name:"밥 두 공기 순삭, 고흥 꽃게장 최대 1.8kg" }
   ]},
-  { title: "받으면 \"센스 있네\" 소리 듣는 선물 5", badge: "리뷰 많은 순", off:50, items: [
+  { title: "받으면 \"센스 있네\" 소리 듣는 선물 5", badge: "", off:50, items: [
     { n:37, id:"uqmkWqfr", who:"부모님, 직장 어른", name:"한 입 먹으면 달다 소리 나는 제주 감귤 3kg 이상" },
     { n:38, id:"q1GUN5b2", who:"동료 여럿", name:"건조한 손과 입술 한 번에, 선물포장 핸드크림 립밤 세트" },
     { n:39, id:"3sbrX66J", who:"가방 가벼운 게 좋은 친구", name:"폰 지갑 쏙 들어가는 마크니 스트링 파우치백 7종" },
     { n:40, id:"k1P0gKII", who:"출근 준비 바쁜 사람", name:"빗질만 해도 볼륨이 사는 무선 빗고데기" },
     { n:41, id:"qx5bF5fo", who:"2030 친구", name:"하트 별 도트 귀여운 유선 이어폰, C타입도 8핀도 있어요" }
   ]},
-  { title: "퇴근하고 눕자마자 풀리는 겨울밤 4", badge: "리뷰 많은 순", off:58, items: [
+  { title: "퇴근하고 눕자마자 풀리는 겨울밤 4", badge: "", off:58, items: [
     { n:42, id:"aZiv5YDb", who:"퇴근하면 다리 무거운 사람", name:"소파에 앉아 발 올리면 따끈, 온열 종아리 마사지기" },
     { n:43, id:"RJj9C81B", who:"혼자 자는 겨울밤", name:"끌어안고 자는 80cm 고양이 바디필로우" },
     { n:44, id:"bDaClVu9", who:"책상 건조한 사람", name:"핑구가 지켜 주는 책상 위 무드등 미니 가습기" },
     { n:45, id:"XkLwj18p", who:"허리 배 시린 날", name:"허리 배 어깨 어디든 따끈한 전기 온열찜질기" }
   ]},
-  { title: "자취방 식탁이 카페 되는 주방템 2", badge: "리뷰 많은 순", items: [
+  { title: "자취방 식탁이 카페 되는 주방템", badge: "", items: [
     { n:46, id:"3KR4uIHs", who:"집들이, 홈카페", name:"식탁에 올리면 호텔 바 분위기, 크리스탈 와인잔 2P" },
     { n:47, id:"bhWYp8O6", who:"자취방 식탁", name:"채소색 미니 접시 5개, 앞접시 하나로 브런치 카페" }
   ]},
@@ -135,7 +148,7 @@ const SECTIONS = [
     { n:52, id:"sc52", url:"https://naver.me/GRDNPtF1", who:"방이 추운 날", name:"켜자마자 주황빛 따뜻, 호메오 카본 미니 스토브" },
     { n:53, id:"sc53", url:"https://naver.me/GQGxOsVH", who:"발 시려 뒤척이는 밤", name:"신으면 발이 폭신, 수면양말 4켤레" }
   ], blog: { url:"https://cshop.naver.com/neoman_molla/products", text:"🔥 느루가 낋여온 특가 할인 템 전부 보러 가기" } },
-  { title: "설거지 귀찮은 날 살려 주는 주방 필수템", badge: "쿠팡 랭킹 1위권", off:54, go:"구경하기 →", items: [
+  { title: "설거지 귀찮은 날 살려 주는 주방 필수템", badge: "쿠팡 랭킹순 위쪽", off:54, go:"구경하기 →", items: [
     { n:54, id:"cp54", url:"https://link.coupang.com/a/iLLScKSDka", who:"설거지 많은 집", name:"13L 한 통이면 한참 걱정 없는 주방세제" },
     { n:55, id:"cp55", url:"https://link.coupang.com/a/iLLSGUAi7g", who:"요리 자주 하는 집", name:"톡톡 뽑아 쓰는 키친타올 15개" },
     { n:56, id:"cp56", url:"https://link.coupang.com/a/iLLTbigwhg", who:"반찬 소분러", name:"중형 대형 100장, 냉동실 정리 끝 지퍼백" },
@@ -144,7 +157,7 @@ const SECTIONS = [
     { n:79, id:"cp79", url:"https://link.coupang.com/a/iNv0QqmguW", who:"싱크대 좁은 자취생", name:"설거지 담가 두기 딱, 녹 안 스는 스텐 설거지 통 8.5L" },
     { n:80, id:"cp80", url:"https://link.coupang.com/a/iNyi0ZD5bw", who:"그릇 둘 데 없는 좁은 주방", name:"싱크대 위에 걸치면 끝, 늘어나는 스텐 식기건조대" }
   ]},
-  { title: "욕실이랑 빨래, 떨어지면 큰일 나는 것들", badge: "쿠팡 랭킹 1위권", off:44, go:"구경하기 →", items: [
+  { title: "욕실이랑 빨래, 떨어지면 큰일 나는 것들", badge: "쿠팡 랭킹순 위쪽", off:44, go:"구경하기 →", items: [
     { n:59, id:"cp59", url:"https://link.coupang.com/a/iLLTFh92ho", who:"식구 많은 집", name:"3겹 화장지 90롤, 한동안 장 안 봐도 됨" },
     { n:60, id:"cp60", url:"https://link.coupang.com/a/iLLUJTV1H2", who:"빨래 몰아 하는 사람", name:"드럼용 액상세제 3L 4통" },
     { n:61, id:"cp61", url:"https://link.coupang.com/a/iLLVd5OMMe", who:"포근한 빨래파", name:"20L 대용량 섬유유연제, 향 오래감" },
@@ -154,7 +167,7 @@ const SECTIONS = [
     { n:76, id:"cp76", url:"https://link.coupang.com/a/iMhlGpekpM", who:"머리에서 좋은 냄새 나고 싶은 사람", name:"화이트머스크 향 컨디셔너, 지나가면 향 남음" },
     { n:78, id:"cp78", url:"https://link.coupang.com/a/iNm8t4FUrc", who:"수건 세균 찝찝한 사람", name:"세안 후 한 장 쓰고 버리는 페이스타올 300장" }
   ]},
-  { title: "집에 하나씩은 꼭 있어야 하는 생활템", badge: "쿠팡 랭킹 1위권", off:43, go:"구경하기 →", items: [
+  { title: "집에 하나씩은 꼭 있어야 하는 생활템", badge: "쿠팡 랭킹순 위쪽", off:43, go:"구경하기 →", items: [
     { n:65, id:"cp65", url:"https://link.coupang.com/a/iLLXPVo8K4", who:"옷장 꽉 찬 사람", name:"안 휘는 스텐 옷걸이 60개" },
     { n:66, id:"cp66", url:"https://link.coupang.com/a/iLLYjQWX2O", who:"여름 이불 둘 데 없는 사람", name:"이불 부피 반으로, 압축 파우치 2개" },
     { n:67, id:"cp67", url:"https://link.coupang.com/a/iLLYNS389I", who:"전기 히터 쓰는 집", name:"과부하 차단 멀티탭 5구" },
@@ -162,15 +175,15 @@ const SECTIONS = [
     { n:69, id:"cp69", url:"https://link.coupang.com/a/iLL40O9Ox2", who:"미세먼지 심한 날", name:"KF94 새부리형 마스크 100장" },
     { n:77, id:"cp77", url:"https://link.coupang.com/a/iNm7keD4QC", who:"바닥 닦을 시간 없는 사람", name:"걸어 다니기만 해도 바닥 먼지 싹, 청소 슬리퍼 + 리필패드" }
   ]},
-  { title: "장바구니에 꼭 담기는 간식이랑 음료", badge: "쿠팡 랭킹 1위권", off:33, go:"구경하기 →", items: [
+  { title: "장바구니에 꼭 담기는 간식이랑 음료", badge: "쿠팡 랭킹순 위쪽", off:33, go:"구경하기 →", items: [
     { n:70, id:"cp70", url:"https://link.coupang.com/a/iLL324NRgy", who:"입 심심한 오후", name:"하루 한 봉 견과 50개" },
     { n:71, id:"cp71", url:"https://link.coupang.com/a/iLL4wNh8zk", who:"탄산 못 끊는 사람", name:"제로콜라 미니캔 30개" },
     { n:72, id:"cp72", url:"https://link.coupang.com/a/iLL5uWlcaq", who:"물 많이 마시는 집", name:"무라벨 생수 2L 18병" }
   ]},
-  { title: "느루가 몰래 쟁인 정리템", badge: "새로 들어옴 11/17", go:"구경하기 →", items: [
+  { title: "느루가 몰래 쟁인 정리템", badge: "", go:"구경하기 →", items: [
     { n:29, id:"cp29", url:"https://link.coupang.com/a/iKUjPrC404", who:"모자 많은 사람", name:"옷장 위 모자 산사태 끝, 창문 달린 모자 보관함 1+1" }
   ]},
-  { title: "받자마자 웃는 동료 연말 선물 5", badge: "인스타 카드 11/17", go:"구경하기 →", items: [
+  { title: "받자마자 웃는 동료 연말 선물 5", badge: "", go:"구경하기 →", items: [
     { n:24, id:"sc24", url:"https://naver.me/5bCSN7Dp", who:"팀장님, 선배", name:"두르면 \"어디서 샀어?\" 소리 나는 보들 목도리" },
     { n:25, id:"sc25", url:"https://naver.me/Grg9Unuc", who:"집들이, 동료", name:"방문 열면 호텔 로비 냄새, 디퓨저 3병" },
     { n:26, id:"sc26", url:"https://naver.me/xdM61Bp9", who:"부담 없이 여럿", name:"만 원도 안 하는 향수 핸드크림 세트" },
@@ -185,14 +198,6 @@ const SECTIONS = [
     { n:16, id:"0MLHPjjq", who:"마니또, 동료", name:"키세스 스마트워치 보조배터리" },
     { n:17, id:"426OqV9B", who:"연말 집들이", name:"부이 바디 에어 드라이어" }
   ], blog: { url:"https://blog.naver.com/lee1994_/224479825916", text:"받는 사람별로 고르는 법 블로그에서 보기" } },
-  { title: "수능 선물, 받는 사람별 6개", badge: "11/19 목 수능", items: [
-    { n:6, id:"J8XdgJ1m", who:"지인 자녀", name:"벨기에 수제초콜릿 칼루위 25조각" },
-    { n:7, id:"8JwVMDAF", who:"조카", name:"초콜릿인 줄 알았던 24k 순금 골드바 1+1" },
-    { n:8, id:"2q290zIs", who:"반 애들 여럿", name:"흔드는 붕어빵 핫팩 20개" },
-    { n:9, id:"bZkYNWSZ", who:"쑥스러운 사이", name:"\"합격\" 글자 찍힌 생초콜릿, 엽서까지" },
-    { n:10, id:"SmrBQIS6", who:"수험생 있는 집", name:"쿠캣 찹쌀떡 세트, 딸기쏙 티라미수쏙" },
-    { n:11, id:"i6ilqsia", who:"같이 공부한 친구", name:"속이 초코인 잔망루피 찹쌀떡" }
-  ], blog: { url:"https://blog.naver.com/lee1994_/224476222916", text:"보내기 전 체크 4개까지 블로그에서 보기" } },
   { title: "연말 동료 선물, 1~3만 원대", badge: "연말", gray:true, items: [
     { n:1, id:"niQ9wzIp", who:"누구에게나", name:"카카올라 생초콜릿 4종 중 택1" },
     { n:2, id:"xkj89BkB", who:"감성 좋아하는 동료", name:"휴그 레트로 디지털 카메라" },
@@ -210,18 +215,32 @@ const BLOG = [
   { url:"https://blog.naver.com/lee1994_/224480552276", t:"저전력 온풍기 전기세, 자취방에서 하루 4시간 켜면 얼마?" },
   { url:"https://blog.naver.com/lee1994_/224480553494", t:"케이패스 홈페이지 등록 안 하면 0원, 내 환급률은?" },
   { url:"https://blog.naver.com/lee1994_/224479825916", t:"연말 선물 추천, 상품권 봉투만 주기 미안할 때 고르는 6가지" },
-  { url:"https://blog.naver.com/lee1994_/224476222916", t:"수능 선물 추천, 뻔한 거 말고 받는 사람별 6가지" },
   { url:"https://blog.naver.com/lee1994_/224476199014", t:"청년 지원금 신청, 올해 안에 닫히는 4가지" },
   { url:"https://blog.naver.com/lee1994_/224476198342", t:"콘서트 취소 수수료, 놓치면 손해인 날짜 4개" },
   { url:"https://blog.naver.com/lee1994_/224474262151", t:"개인투자용 국채 몇 년물? 볼 것 5가지" }
 ];
+// 11/20 이번 주 느루 픽: 매주 월요일 본부가 번호만 바꾼다(점검 순서 hq\기획\링크페이지_인기채우기_후보_1120.md). 카드 id는 아래 본 칸에만 있어 번호 찾기가 안 겹친다.
+const PICK = [51, 52, 53, 42, 45, 43, 24];  // 반대 채점 1120: 겨울 제목에 맞게 37 감귤, 62 곰팡이 → 45 온열찜질기, 43 바디필로우
+// 할인율(off)을 칸에 적은 날. 월요일 PICK 바꿀 때 판매 화면을 다시 보고 off 값과 이 날짜를 같이 고친다.
+const OFF_DAY = "11/18";
+// 끝난 묶음(지운 번호). 게시물에 남은 번호를 치면 끝났다고 알려 준다.
+const ENDED = {6:"수능 선물", 7:"수능 선물", 8:"수능 선물", 9:"수능 선물", 10:"수능 선물", 11:"수능 선물"};
 const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
-document.getElementById("notice").textContent = NOTICE.join(" ");
+const store = u => !u ? "카카오 선물하기" : /coupang/.test(u) ? "쿠팡" : /naver/.test(u) ? "네이버" : /welfarehello/.test(u) ? "웰로" : "";
+document.getElementById("notice").textContent = NOTICE.join("\n");  // 반대 채점 1120: 문장마다 줄 바꿈(.notice white-space:pre-line), 글자는 그대로
+{ const mx = Math.max(...SECTIONS.map(s => s.off || 0)); if (mx) { const d = document.getElementById("deal"); d.firstChild.textContent = `최대 ${mx}% 할인템까지, 느루가 몰래 쟁여 뒀어요`; d.querySelector("small").textContent = `할인율은 ${OFF_DAY}에 적어 둔 값이고 물건마다 기간이 달라요. 눌러서 지금 가격을 바로 봐요 👇`; } }  // 칸에 적힌 할인율 중 가장 큰 값만(지어낸 숫자 금지)
+const all = {}; for (const sec of SECTIONS) for (const it of sec.items) all[it.n] = Object.assign({go: sec.go}, it);
 let h = "";
+const pk = PICK.map(n => all[n]).filter(Boolean);
+if (pk.length) {
+  h += `<section class="pickbox"><div class="sec-head"><h2>이번 주 느루 픽 🔥 추워지기 전에 쟁여 둘 것</h2></div><div class="pickrow">`;
+  for (const it of pk) h += `<a href="${it.url || K(it.id)}" target="_blank" rel="noopener"><img src="img/${it.id}.jpg" alt="${esc(it.name)}" loading="lazy"><span class="pn">${it.n}번 ${esc(it.name)}</span><span class="pg">${esc(store(it.url))}에서 지금 가격 ›</span></a>`;
+  h += `</div></section>`;
+}
 for (const sec of SECTIONS) {
-  h += `<section><div class="sec-head"><h2>${esc(sec.title)}</h2><span class="badge${sec.gray?" gray":""}">${esc(sec.badge)}</span></div>${sec.off ? `<p class="off">최대 ${sec.off}% 할인</p>` : ""}<div class="grid">`;
+  h += `<section><div class="sec-head"><h2>${esc(sec.title)}</h2>${sec.badge ? `<span class="badge${sec.gray?" gray":""}">${esc(sec.badge)}</span>` : ""}</div>${sec.off ? `<p class="off">최대 ${sec.off}% 할인(${OFF_DAY} 적어 둔 값)</p>` : ""}<div class="grid">`;
   for (const it of sec.items) {
-    h += `<a class="item" id="n${it.n}" href="${it.url || K(it.id)}" target="_blank" rel="noopener"><div class="pic"><img src="img/${it.id}.jpg" alt="${esc(it.name)}" loading="lazy"><span class="num">${it.n}번</span></div><div class="body"><span class="who">${esc(it.who)}</span><span class="name">${esc(it.name)}</span><span class="go">${sec.go || "선물하기 →"}</span></div></a>`;
+    h += `<a class="item" id="n${it.n}" href="${it.url || K(it.id)}" target="_blank" rel="noopener"><div class="pic"><img src="img/${it.id}.jpg" alt="${esc(it.name)}" loading="lazy"><span class="num">${it.n}번</span><span class="store">${esc(store(it.url))}</span></div><div class="body"><span class="who">${esc(it.who)}</span><span class="name">${esc(it.name)}</span><span class="go">${!it.url ? "카카오에서 지금 가격 보기 ›" : (sec.go || "").replace("구경하기 →", "지금 가격 보기 ›") || "지금 가격 보기 ›"}</span></div></a>`;
   }
   h += `</div>`;
   if (sec.blog) h += `<a class="cta" href="${sec.blog.url}" target="_blank" rel="noopener">${esc(sec.blog.text)}</a>`;
@@ -240,7 +259,7 @@ document.getElementById("app").innerHTML = h;
 const sIn = document.getElementById("s"), sMsg = document.getElementById("smsg");
 function filt(q, go2) {
   q = q.trim().replace(/\s+/g, ""); { const mm = /^(?:no\.?|#|번호)?(\d+)(?:번째|번|호)?\.?$/i.exec(q); if (mm) q = mm[1]; }  // 11/19 사장 "80번을 치면 안나와": 80번, #80, 80호도 번호로
-  if (/^\d+$/.test(q)) { const el = document.getElementById("n" + q); document.querySelectorAll("#app .hide").forEach(x => x.classList.remove("hide")); if (el) { if (go2 || q.length >= 1) { el.scrollIntoView({behavior:"smooth", block:"center"}); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 2000); } sMsg.innerHTML = q + "번 찾았어요"; } else { sMsg.innerHTML = q + "번은 아직 없어요"; } return; }
+  if (/^\d+$/.test(q)) { const el = document.getElementById("n" + q); document.querySelectorAll("#app .hide").forEach(x => x.classList.remove("hide")); if (el) { if (go2 || q.length >= 1) { el.scrollIntoView({behavior:"smooth", block:"center"}); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 2000); } sMsg.innerHTML = q + "번 찾았어요"; } else { sMsg.innerHTML = ENDED[q] ? `${q}번은 ${ENDED[q]}이라 끝났어요. 위 '이번 주 느루 픽'을 봐요` : q + "번은 아직 없어요"; } return; }
   let n = 0;
   document.querySelectorAll("#app section").forEach(sec => {
     const items = sec.querySelectorAll("a.item");
@@ -258,7 +277,7 @@ sIn.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault
 document.getElementById("chips").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; sIn.value = b.textContent; filt(b.textContent, true); });
 document.getElementById("find").addEventListener("submit", e => { e.preventDefault();
   const el = document.getElementById("n" + document.getElementById("q").value.trim());
-  if (!el) { alert("그 번호는 아직 없어요"); return; }
+  if (!el) { alert(ENDED[document.getElementById("q").value.trim()] ? "그 번호는 끝난 선물이에요" : "그 번호는 아직 없어요"); return; }
   if (sIn.value) { sIn.value = ""; filt(""); }
   el.scrollIntoView({behavior:"smooth", block:"center"}); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 2000); });
 // 11/19 본부: 주소 끝 #n15 처럼 번호를 붙이면 그 물건으로 바로 이동(노션 자료에서 번호 링크용)

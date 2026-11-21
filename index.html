@@ -10,88 +10,88 @@
 <meta property="og:image" content="img/profile.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
+/* 11/21 새 첫 화면 시안(hq\기획\잇템_새첫화면_1121). 데이터(SECTIONS 등)는 원본 그대로, 화면 틀만 새로 짬 */
 :root{
-  --bg:#F3EFE8; --card:#FFFFFF; --ink:#22201C; --sub:#6B655C; --line:#E4DDD1;
-  --accent:#F26B1D; --accent-ink:#FFFFFF; --tag:#FFF1E6; --tag-ink:#B4500F; --hot:#1E7A4C;
+  --bg:#F2F6F3; --card:#FFFFFF; --ink:#1B2420; --sub:#56635B; --line:#DDE6DF;
+  --brand:#1F5A45; --brand-ink:#FFFFFF; --tint:#E3F0E8; --sky:#D9EDFA; --hot:#D93A20;
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);
   font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  -webkit-font-smoothing:antialiased}
-.wrap{max-width:480px;margin:0 auto;padding:28px 16px 48px}
-header{text-align:center}
-.avatar{width:88px;height:88px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-h1{font-size:22px;margin:12px 0 4px;letter-spacing:-.3px}
-.bio{color:var(--sub);font-size:15px;margin:0}
-.notice{margin:18px 0 0;padding:8px 10px;background:#FBF8F3;border:1px solid var(--line);border-radius:10px;
-  color:var(--sub);font-size:11px;line-height:1.35;text-align:left;white-space:pre-line}
-section{margin-top:30px}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:12px}
-h2{font-size:18px;margin:0;letter-spacing:-.3px}
-.badge{flex:none;font-size:12px;font-weight:700;color:#fff;background:var(--hot);padding:4px 8px;border-radius:999px}
-.badge.gray{background:#8C857A}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-a.item{display:flex;flex-direction:column;background:var(--card);border-radius:14px;overflow:hidden;
-  text-decoration:none;color:inherit;border:1px solid var(--line);transition:transform .12s}
-a.item:active{transform:scale(.98)}
-a.item img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eee}
-.item .body{padding:10px 10px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
-.num{position:absolute;top:8px;left:8px;background:rgba(34,32,28,.82);color:#fff;font-size:13px;font-weight:800;padding:4px 8px;border-radius:8px}
-.pic{position:relative}
-.find{display:flex;gap:8px;margin-top:14px}
-.find input{flex:1;min-width:0;font:inherit;font-size:16px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff}
-.find button{font:inherit;font-weight:700;font-size:15px;border:0;border-radius:10px;padding:0 16px;background:var(--ink);color:#fff}
-.flash{outline:3px solid var(--accent);outline-offset:2px}
-.who{align-self:flex-start;font-size:12px;font-weight:700;color:var(--tag-ink);background:var(--tag);padding:3px 7px;border-radius:6px}
-.name{font-size:14px;font-weight:600;line-height:1.35}
-.go{margin-top:auto;font-size:13px;font-weight:700;color:var(--accent)}
-a.wide{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:14px;text-decoration:none;color:inherit;margin-bottom:10px}
-a.wide .t{font-size:15px;font-weight:600;line-height:1.35}
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:480px;margin:0 auto;padding:14px 14px 48px}
+a{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.top{display:flex;align-items:center;gap:10px}
+.avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;background:var(--sky)}
+.top h1{font-size:19px;margin:0;font-weight:800;letter-spacing:-.4px;line-height:1.2}
+.top p{margin:2px 0 0;font-size:13px;color:var(--sub);line-height:1.3}
+.upto{margin:12px 0 0;padding:12px 10px;border-radius:12px;background:#E8590C;color:#fff;font-size:17px;font-weight:800;text-align:center;letter-spacing:-.2px}.upto b{font-size:24px}
+.trust{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.trust li{background:var(--tint);border-radius:10px;padding:8px 6px;font-size:12px;font-weight:700;line-height:1.35;color:var(--brand);text-align:center;word-break:keep-all}
+.notice{margin:8px 0 0;padding:8px 12px 4px;background:#fff;border:1.5px dashed #8FB3A0;border-radius:12px}
+.notice h2{margin:0 0 4px;font-size:13px;font-weight:800;color:var(--brand)}
+.notice p{margin:0;padding:4px 0;font-size:12px;line-height:1.4;letter-spacing:-.2px;color:#3F4B44;border-top:1px dotted var(--line);word-break:keep-all}
+.notice h2+p{border-top:0}
+.srch{margin-top:10px}
+.srch input{width:100%;height:46px;font:inherit;font-size:16px;padding:0 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff}
+.srch input:focus{border-color:var(--brand)}
+.smsg{margin:6px 0 0;font-size:13px;color:var(--sub)}
+.smsg:empty{display:none}
+.smsg a{color:var(--brand);font-weight:700}
+.nav{display:flex;gap:6px;overflow-x:auto;margin:10px -14px 0;padding:0 14px 2px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;display:flex;align-items:center;height:40px;padding:0 14px;border-radius:999px;background:#fff;border:1.5px solid var(--line);color:var(--ink);font-size:14px;font-weight:700;text-decoration:none}
+section{margin-top:26px;scroll-margin-top:12px}
+.sec-head h2{font-size:18px;line-height:1.35;margin:0;font-weight:800;letter-spacing:-.4px;word-break:keep-all}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 10px}
+.tag{font-size:12px;font-weight:700;color:var(--brand);background:var(--tint);padding:3px 8px;border-radius:6px}
+.off{font-size:12px;font-weight:700;color:var(--hot)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
+a.item{display:flex;flex-direction:column;background:var(--card);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;border:1px solid var(--line)}
+a.item:active{background:#F7FAF8}
+.pic{position:relative;background:#eee}
+.pic img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+.num{position:absolute;top:8px;left:8px;background:rgba(27,36,32,.86);color:#fff;font-size:13px;font-weight:800;padding:3px 8px;border-radius:8px}
+.store{position:absolute;left:8px;bottom:8px;background:#fff;color:var(--ink);font-size:12px;font-weight:800;padding:3px 7px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.body{padding:10px 10px 10px;display:flex;flex-direction:column;gap:5px;flex:1}
+.who{font-size:12px;line-height:1.4;color:var(--sub);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:keep-all}
+.name{font-size:15px;font-weight:800;line-height:1.4;letter-spacing:-.3px;word-break:keep-all;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.go{margin-top:auto;display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:10px;background:var(--brand);color:var(--brand-ink);font-size:13.5px;font-weight:800;text-align:center;padding:0 6px}
+.body .go{margin-top:8px}
+.pickrow{display:flex;gap:10px;overflow-x:auto;margin:0 -14px;padding:2px 14px 6px;scroll-snap-type:x proximity;scroll-padding-left:14px;scrollbar-width:none;align-items:stretch}
+.pickrow::-webkit-scrollbar{display:none}
+.pickrow a.item{flex:0 0 164px;scroll-snap-align:start}
+.picksub{margin:4px 0 10px;font-size:14px;color:var(--sub)}
+.flash{outline:3px solid var(--hot);outline-offset:2px}
+a.wide{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:inherit;margin-bottom:10px;min-height:56px}
+a.wide .t{font-size:15px;font-weight:700;line-height:1.4;word-break:keep-all}
 a.wide .s{font-size:13px;color:var(--sub);margin-top:3px}
-a.wide .arrow{margin-left:auto;color:var(--accent);font-size:20px;font-weight:700}
-a.cta{display:block;text-align:center;background:var(--accent);color:var(--accent-ink);text-decoration:none;
-  font-weight:700;font-size:15px;padding:14px;border-radius:12px;margin-top:12px}
-footer{margin-top:36px;text-align:center;color:var(--sub);font-size:12px;line-height:1.6}
-.srch{margin-top:12px;text-align:left}
-.srch input{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:2px solid var(--accent);border-radius:12px;background:#fff}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.chips button{font:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--ink);padding:6px 10px;border-radius:999px}
-.smsg{margin:8px 0 0;font-size:13px;color:var(--sub)}
-.smsg a{color:var(--accent);font-weight:700}
+a.wide .arrow{margin-left:auto;color:var(--brand);font-size:20px;font-weight:700}
+details.wide{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px}
+details.wide .s{font-size:14px;color:var(--ink)}
+a.cta{display:flex;align-items:center;justify-content:center;min-height:48px;text-align:center;background:var(--brand);color:#fff;text-decoration:none;font-weight:800;font-size:15px;padding:12px;border-radius:12px;margin-top:12px}
+a.shop{display:flex;align-items:center;gap:10px;margin-top:12px;padding:12px 14px;min-height:56px;border-radius:14px;background:#03C75A;color:#fff;text-decoration:none;font-weight:800;font-size:15px;line-height:1.35}
+a.shop small{display:block;font-size:12px;font-weight:600;opacity:.95}
+a.shop .arrow{margin-left:auto;font-size:20px}
+footer{margin-top:36px;text-align:center;color:var(--sub);font-size:13px;line-height:1.6}
 .hide{display:none!important}
-.deal{margin:18px 0 0;padding:14px 12px;background:var(--accent);color:var(--accent-ink);border-radius:14px;font-size:19px;font-weight:800;line-height:1.35;letter-spacing:-.3px}
-.deal small{display:block;margin-top:4px;font-size:12px;font-weight:600;opacity:.9}
-.off{margin:-6px 0 10px;font-size:12px;font-weight:700;color:var(--accent)}
-/* 11/20 신뢰 설계(hq\기획\링크페이지_신뢰설계_1120.md): 고른 기준 3줄, 이번 주 픽, 판매처 칩, 버튼 모양 */
-.trust{list-style:none;margin:10px 0 0;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:12px;
-  display:flex;flex-direction:column;gap:4px;text-align:left;font-size:13px;font-weight:700;color:#2F5D3A}
-.pickbox{margin-top:24px}
-.pickrow{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.pickrow a{flex:0 0 132px;scroll-snap-align:start;background:#fff;border:2px solid var(--accent);border-radius:14px;overflow:hidden;
-  text-decoration:none;color:inherit;display:flex;flex-direction:column}
-.pickrow img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eee}
-.pickrow .pn{font-size:13px;font-weight:700;line-height:1.35;padding:8px 8px 0}
-.pickrow .pg{margin-top:auto;padding:6px 8px 8px;font-size:12px;font-weight:800;color:var(--accent)}
-.store{position:absolute;right:8px;bottom:8px;background:#fff;color:var(--ink);font-size:11px;font-weight:800;padding:3px 7px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.15)}
-.go{display:block;text-align:center;background:var(--accent);color:#fff!important;border-radius:10px;padding:9px 6px;min-height:40px;line-height:1.5}
-.shopbtn{display:block;margin:10px 0 0;padding:14px 16px;border-radius:14px;background:#03c75a;color:#fff;font-weight:800;font-size:17px;text-align:center;text-decoration:none}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <img class="avatar" src="img/profile.jpg" alt="너만몰라 캐릭터 느루">
-    <h1>느루 잇템 🛒 할인템 다 모음</h1>
-    <p class="bio">다들 챙기는데 나만 몰랐던 돈, 혜택, 선물</p>
-    <a class="deal" id="deal" href="#app" style="display:block;text-decoration:none">겨울 따끈템부터 연말 선물까지, 느루가 몰래 쟁여 뒀어요<small>할인 기간은 물건마다 달라요. 눌러서 지금 가격을 바로 봐요 👇</small></a>
-    <ul class="trust"><li>✔ 쿠팡 랭킹, 리뷰 많은 순 위주로 골라요</li><li>✔ 사진은 판매처 사진 그대로</li><li>✔ 값, 배송, 반품은 산 곳에서 바로</li></ul>
-    <p class="notice" id="notice"></p>
-    <a class="shopbtn" href="https://cshop.naver.com/neoman_molla/products" target="_blank" rel="noopener">🔥 느루가 낋여온 특가 할인 템! 바로 보기 ›</a>
-    <form class="find" id="find" style="display:none"><input id="q"><button>찾기</button></form>
-    <div class="srch"><input id="s" type="search" placeholder="카드에서 본 번호나 물건 이름 (예: 29, 담요)" aria-label="물건 검색">
-      <div class="chips" id="chips"><button type="button">난방</button><button type="button">운동화</button><button type="button">핸드크림</button><button type="button">목도리</button><button type="button">텀블러</button><button type="button">초콜릿</button><button type="button">디퓨저</button><button type="button">사과</button><button type="button">고향사랑</button><button type="button">전기요</button><button type="button">수건</button></div>
+    <div class="top">
+      <img class="avatar" src="img/profile.jpg" alt="너만몰라 캐릭터 느루">
+      <div><h1>느루 잇템</h1><p>다들 챙기는데 나만 몰랐던 물건, 느루가 골라 뒀어요</p></div>
+    </div>
+    <div class="upto">UP TO <b>80%</b> 할인템, 느루가 몰래 쟁여 뒀어요 🔥</div>
+    <ul class="trust"><li>사진은 판매처 사진 그대로</li><li>값과 반품은 산 곳에서 바로</li><li>쿠팡은 리뷰 많은 순 위주</li></ul>
+    <div class="notice" id="notice"></div>
+    <div class="srch"><input id="s" type="search" placeholder="게시물에서 본 번호나 물건 이름 (예: 29, 담요)" aria-label="물건 검색">
       <p class="smsg" id="smsg" role="status"></p></div>
+    <nav class="nav" id="chips" aria-label="묶음으로 바로가기"></nav>
+    <form class="find" id="find" style="display:none"><input id="q"><button>찾기</button></form>
   </header>
   <main id="app"></main>
   <footer>새 링크는 맨 위에 올라와요. 저장해 두고 필요할 때 꺼내 보세요.</footer>
@@ -238,25 +238,32 @@ const OFF_DAY = "11/18";
 const ENDED = {6:"수능 선물", 7:"수능 선물", 8:"수능 선물", 9:"수능 선물", 10:"수능 선물", 11:"수능 선물"};
 const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
 const store = u => !u ? "카카오 선물하기" : /coupang/.test(u) ? "쿠팡" : /naver/.test(u) ? "네이버" : /welfarehello/.test(u) ? "웰로" : "";
-document.getElementById("notice").textContent = NOTICE.join("\n");  // 반대 채점 1120: 문장마다 줄 바꿈(.notice white-space:pre-line), 글자는 그대로
-{ const mx = Math.max(...SECTIONS.map(s => s.off || 0)); if (mx) { const d = document.getElementById("deal"); d.firstChild.textContent = `최대 ${mx}% 할인템까지, 느루가 몰래 쟁여 뒀어요`; d.querySelector("small").textContent = `할인율은 ${OFF_DAY}에 적어 둔 값이고 물건마다 기간이 달라요. 눌러서 지금 가격을 바로 봐요 👇`; } }  // 칸에 적힌 할인율 중 가장 큰 값만(지어낸 숫자 금지)
+document.getElementById("notice").innerHTML = NOTICE.map(t => "<p>" + esc(t) + "</p>").join("");  // 반대 채점 1120: 문장마다 줄 바꿈(.notice white-space:pre-line), 글자는 그대로
 const all = {}; for (const sec of SECTIONS) for (const it of sec.items) all[it.n] = Object.assign({go: sec.go}, it);
 let h = "";
+const IMG = "../../../../neoman-links/img/";  // 시안 폴더에서 원본 사진을 읽는 길. 실제 적용할 땐 "img/"로
+document.querySelectorAll("img.avatar").forEach(e => e.src = IMG + "profile.jpg");
+const BTN = u => !u ? "카카오" : /coupang/.test(u) ? "쿠팡" : /naver/.test(u) ? "네이버" : /welfarehello/.test(u) ? "웰로" : "";
+const card = (it, sec) => `<a class="item" id="n${it.n}" href="${it.url || K(it.id)}" target="_blank" rel="noopener"><div class="pic"><img src="${IMG}${it.id}.jpg" alt="${esc(it.name)}" loading="lazy" width="400" height="400"><span class="num">${it.n}번</span><span class="store">${esc(store(it.url))}</span></div><div class="body"><span class="who">${esc(it.who)}</span><span class="name">${esc(it.name)}</span><span class="go">${BTN(it.url)}에서 지금 가격 ›</span></div></a>`;
 const pk = PICK.map(n => all[n]).filter(Boolean);
 if (pk.length) {
-  h += `<section class="pickbox"><div class="sec-head"><h2>이번 주 느루 픽 🔥 추워지기 전에 쟁여 둘 것</h2></div><div class="pickrow">`;
-  for (const it of pk) h += `<a href="${it.url || K(it.id)}" target="_blank" rel="noopener"><img src="img/${it.id}.jpg" alt="${esc(it.name)}" loading="lazy"><span class="pn">${it.n}번 ${esc(it.name)}</span><span class="pg">${esc(store(it.url))}에서 지금 가격 ›</span></a>`;
-  h += `</div></section>`;
+  h += `<section class="pickbox" id="pick"><div class="sec-head"><h2>이번 주 느루 픽</h2></div><p class="picksub">추워지기 전에 쟁여 둘 것만 골랐어요</p><div class="pickrow">`;
+  for (const it of pk) h += card(it).replace(/ id="n\d+"/, "");
+  h += `</div><a class="shop" href="https://cshop.naver.com/neoman_molla/products" target="_blank" rel="noopener"><span>🔥 느루가 낋여온 특가 할인 템<small>네이버 스토어에서 더 많은 할인템 보기</small></span><span class="arrow">›</span></a></section>`;
 }
-for (const sec of SECTIONS) {
-  h += `<section><div class="sec-head"><h2>${esc(sec.title)}</h2>${sec.badge ? `<span class="badge${sec.gray?" gray":""}">${esc(sec.badge)}</span>` : ""}</div>${sec.off ? `<p class="off">최대 ${sec.off}% 할인(${OFF_DAY} 적어 둔 값)</p>` : ""}<div class="grid">`;
-  for (const it of sec.items) {
-    h += `<a class="item" id="n${it.n}" href="${it.url || K(it.id)}" target="_blank" rel="noopener"><div class="pic"><img src="img/${it.id}.jpg" alt="${esc(it.name)}" loading="lazy"><span class="num">${it.n}번</span><span class="store">${esc(store(it.url))}</span></div><div class="body"><span class="who">${esc(it.who)}</span><span class="name">${esc(it.name)}</span><span class="go">${!it.url ? "카카오에서 지금 가격 보기 ›" : (sec.go || "").replace("구경하기 →", "지금 가격 보기 ›") || "지금 가격 보기 ›"}</span></div></a>`;
-  }
+SECTIONS.forEach((sec, si) => {
+  h += `<section id="s${si}"><div class="sec-head"><h2>${esc(sec.title)}</h2></div>`;
+  if (sec.badge || sec.off) h += `<div class="meta">${sec.badge ? `<span class="tag">${esc(sec.badge)}</span>` : ""}${sec.off ? `<span class="off">최대 ${sec.off}% 할인(${OFF_DAY}에 적어 둔 값)</span>` : ""}</div>`; else h += `<div style="height:10px"></div>`;
+  h += `<div class="grid">`;
+  for (const it of sec.items) h += card(it, sec);
   h += `</div>`;
   if (sec.blog) h += `<a class="cta" href="${sec.blog.url}" target="_blank" rel="noopener">${esc(sec.blog.text)}</a>`;
   h += `</section>`;
-}
+});
+{ const defs = [["겨울템", /겨울/], ["연말 선물", /선물/], ["고향 답례품", /답례품/], ["주방", /주방/], ["욕실, 빨래", /욕실/], ["간식", /간식/]];
+  let nv = '<a href="#pick">이번 주 픽</a>';
+  for (const [t, re] of defs) { const i = SECTIONS.findIndex(x => re.test(x.title)); if (i >= 0) nv += `<a href="#s${i}">${t}</a>`; }
+  document.getElementById("chips").innerHTML = nv; }
 h += `<section><div class="sec-head"><h2>연말 전에 챙길 혜택</h2></div>`;
 for (const e of EXTRA) h += `<a class="wide" href="${e.url}" target="_blank" rel="noopener"><div><div class="t">${esc(e.t)}</div><div class="s">${esc(e.s)}</div></div><span class="arrow">›</span></a>`;
 h += `</section>`;

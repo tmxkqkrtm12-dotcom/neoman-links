@@ -253,7 +253,7 @@ if (pk.length) {
 }
 SECTIONS.forEach((sec, si) => {
   h += `<section id="s${si}"><div class="sec-head"><h2>${esc(sec.title)}</h2></div>`;
-  if (sec.badge || sec.off) h += `<div class="meta">${sec.badge ? `<span class="tag">${esc(sec.badge)}</span>` : ""}${sec.off ? `<span class="off">최대 ${sec.off}% 할인(${OFF_DAY}에 적어 둔 값)</span>` : ""}</div>`; else h += `<div style="height:10px"></div>`;
+  if (sec.badge || sec.off) h += `<div class="meta">${sec.badge ? `<span class="tag">${esc(sec.badge)}</span>` : ""}${sec.off ? `<span class="off">최대 ${sec.off}% 할인</span>` : ""}</div>`; else h += `<div style="height:10px"></div>`;
   h += `<div class="grid">`;
   for (const it of sec.items) h += card(it, sec);
   h += `</div>`;
